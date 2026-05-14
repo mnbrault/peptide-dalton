@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DALTON — Présentation associés (paysage)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --forest: #1d2d26;
+      --paper: #f5f1ea;
+      --ink: #1a1a1a;
+      --muted: #4a524a;
+      --line: rgba(0, 0, 0, 0.1);
+      --card: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 12mm;
+    }
+
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 11pt;
+      line-height: 1.45;
+      color: var(--ink);
+      background: #e8e4dc;
+    }
+
+    .deck {
+      max-width: 297mm;
+      margin: 0 auto;
+      padding: 12px;
+    }
+
+    .slide {
+      width: 100%;
+      min-height: 186mm;
+      max-width: 273mm;
+      margin: 0 auto 16px;
+      padding: 14mm 16mm;
+      background: var(--paper);
+      border-radius: 4px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      display: grid;
+      gap: 14px;
+      align-content: start;
+      page-break-after: always;
+      break-after: page;
+    }
+
+    .slide:last-child {
+      page-break-after: auto;
+      break-after: auto;
+    }
+
+    .slide--cover {
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      background: linear-gradient(135deg, #f5f1ea 0%, #e8dfd0 100%);
+    }
+
+    .slide--two-col {
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .slide--three-col {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .brand {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      font-size: 13px;
+      color: var(--forest);
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 38pt;
+      line-height: 1.05;
+      color: var(--forest);
+      font-weight: 500;
+      margin: 8px 0 12px;
+    }
+
+    h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 22pt;
+      color: var(--forest);
+      font-weight: 500;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+    }
+
+    h3 {
+      font-size: 11pt;
+      font-weight: 600;
+      color: var(--forest);
+      margin: 0 0 6px;
+    }
+
+    .eyebrow {
+      font-size: 9pt;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #6c746c;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 8pt;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+      font-size: 10pt;
+    }
+
+    p {
+      margin-bottom: 8px;
+    }
+
+    ul {
+      margin: 0 0 0 14px;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    .cover-img {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.14);
+    }
+
+    .cover-img img {
+      width: 100%;
+      display: block;
+      height: 100%;
+      object-fit: cover;
+      min-height: 120mm;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+    }
+
+    .stat .num {
+      font-size: 22pt;
+      font-weight: 700;
+      color: var(--forest);
+      line-height: 1.1;
+    }
+
+    .stat .lbl {
+      font-size: 9pt;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .box {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+    }
+
+    .box + .box {
+      margin-top: 10px;
+    }
+
+    .muted-small {
+      font-size: 8.5pt;
+      color: #777;
+    }
+
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .price-card {
+      border-radius: 10px;
+      padding: 12px;
+      color: #fff;
+      font-size: 9pt;
+    }
+
+    .price-card h3 {
+      color: inherit;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 18pt;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .price-card .eur {
+      font-size: 20pt;
+      font-weight: 700;
+      margin: 8px 0;
+    }
+
+    .eq {
+      background: linear-gradient(160deg, #2d4a3e, #1a3028);
+    }
+
+    .eq h3 {
+      color: #9fd9cc;
+    }
+
+    .en {
+      background: linear-gradient(160deg, #1a1e26, #0f1218);
+    }
+
+    .en h3 {
+      color: #e8a088;
+    }
+
+    .co {
+      background: linear-gradient(160deg, #363933, #242822);
+    }
+
+    .co h3 {
+      color: #c4ddd4;
+    }
+
+    .thumb {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .thumb img {
+      width: 100%;
+      display: block;
+      height: 52mm;
+      object-fit: cover;
+    }
+
+    .footer-line {
+      font-size: 8.5pt;
+      color: #888;
+      margin-top: auto;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
+    }
+
+    .slide--dense .footer-line {
+      grid-column: 1 / -1;
+    }
+
+    .sources {
+      font-size: 8pt;
+      color: #777;
+      border-left: 3px solid var(--forest);
+      padding-left: 10px;
+      margin-top: 8px;
+    }
+
+    .micro {
+      font-size: 8.5pt;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+
+    .micro strong {
+      color: var(--forest);
+    }
+
+    .tri-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin-top: 8px;
+      align-items: start;
+    }
+
+    .mini-box {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px;
+      background: #faf8f4;
+      font-size: 8.3pt;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+
+    .mini-box h4 {
+      font-size: 9.5pt;
+      color: var(--forest);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .mini-box ul {
+      margin: 4px 0 0 12px;
+    }
+
+    .mini-box li {
+      margin-bottom: 3px;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .deck {
+        padding: 0;
+        max-width: none;
+      }
+
+      .slide {
+        box-shadow: none;
+        border-radius: 0;
+        min-height: auto;
+        height: 186mm;
+        max-width: none;
+        margin: 0;
+        page-break-after: always;
+        break-after: page;
+      }
+
+      .slide:last-child {
+        page-break-after: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="deck">
+    <!-- 1 -->
+    <section class="slide slide--cover">
+      <div>
+        <span class="eyebrow">Document confidentiel — associés</span>
+        <h1>DALTON</h1>
+        <p style="font-size: 12pt; color: #444; max-width: 42ch">
+          Marque premium de <strong>peptides marins</strong> (10&nbsp;g) — positionnement lifestyle &amp; performance, distribution
+          <strong>DTC</strong> par abonnement (Shopify), cible Europe.
+        </p>
+        <p class="muted-small" style="margin-top: 14px">
+          « The Ocean Peptide Ritual » — trois formules : Équilibre, Énergie, Complète.
+        </p>
+        <p class="footer-line">Mai 2026 — Martin Demoustier Brault</p>
+      </div>
+      <div class="cover-img">
+        <img src="assets/ChatGPT_Image_May_14__2026__02_59_53_PM-23178319-7a83-4ea8-b093-230c2932f989.png" alt="Gamme DALTON" />
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="slide slide--two-col slide--dense">
+      <div>
+        <span class="tag">Synthèse</span>
+        <h2>Proposition &amp; différenciation</h2>
+        <p>
+          DALTON se situe au croisement du <strong>sport</strong>, du <strong>skincare</strong>, du <strong>bien-être</strong> et de la
+          <strong>nutrition fonctionnelle</strong>, avec un design premium (références esthétiques : univers minimal « spa / Kinfolk ») et une
+          promesse de <strong>traçabilité</strong> &amp; <strong>durabilité</strong> (packaging, storytelling océan → consommateur).
+        </p>
+        <div class="box">
+          <h3>Piliers produit</h3>
+          <ul>
+            <li>Peptides marins hydrolysés — biodisponibilité, dosage clair (10&nbsp;g).</li>
+            <li>Trois usages : métabolisme &amp; peau / sport &amp; récupération / rituel complet.</li>
+            <li>Abonnement = récurrence, LTV, prévisibilité des stocks.</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <span class="tag">Cible</span>
+        <h2>Qui achète ?</h2>
+        <div class="box">
+          <h3>Segments prioritaires</h3>
+          <ul>
+            <li>Actifs 25–45 ans, urbains, sensibles au <strong>clean label</strong> et au <strong>premium</strong>.</li>
+            <li>Communautés <strong>outdoor</strong> : trail, surf, yoga, cross-training.</li>
+            <li>Acheteurs de compléments « beauté + performance » déjà éduqués au collagène / peptides.</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>Canaux</h3>
+          <ul>
+            <li>Site marchand DTC, contenus UGC, partenariats micro-influence wellness / sport.</li>
+            <li>Phase 2 possible : retail sélectif (spa, concept stores) si marges préservées.</li>
+          </ul>
+        </div>
+        <p class="footer-line">Usage interne — ne pas diffuser sans accord.</p>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="slide slide--dense">
+      <span class="tag">Étude de marché</span>
+      <h2>Taille, dynamique &amp; tendances</h2>
+      <div class="stat-row">
+        <div class="stat">
+          <div class="num">7,44&nbsp;Md$</div>
+          <div class="lbl">Marché mondial des peptides de collagène (estimation horizon ~2033, selon agrégats d’analystes / rapports sectoriels).</div>
+        </div>
+        <div class="stat">
+          <div class="num">~11–12&nbsp;%</div>
+          <div class="lbl">CAGR indicative du segment peptides / collagène en Europe (fourchette courante dans les synthèses de marché ; à recaler sur une étude payante pour un BP).</div>
+        </div>
+        <div class="stat">
+          <div class="num">Premium</div>
+          <div class="lbl">Fort momentum des formats « rituel » (stick, sachet, abonnement) vs. gros pots bas de gamme.</div>
+        </div>
+      </div>
+      <div class="slide--two-col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px">
+        <div class="box">
+          <h3>Forces structurantes</h3>
+          <ul>
+            <li>Santé <strong>préventive</strong> et vieillissement actif.</li>
+            <li>Exigence <strong>transparence</strong> (origine marine, pêche durable, analyses).</li>
+            <li>Convergence <strong>beauté × performance</strong> (même consommateur, même panier).</li>
+            <li>Europe : fragmentation des marques locales vs. géants US — fenêtre pour une marque <strong>EU-native</strong>.</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>Risques &amp; barrières</h3>
+          <ul>
+            <li>Réglementation claims (EFSA) : formulations et messages à valider juridiquement.</li>
+            <li>Coût matière &amp; supply chain marine (qualité, certification).</li>
+            <li>CAC élevé si créative / acquisition mal maîtrisée.</li>
+            <li>Concurrence collagène « générique » à bas prix sur marketplaces.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="sources">
+        Les chiffres agrégés ci-dessus servent de <strong>ordre de grandeur</strong> pour discussion entre associés. Pour investisseurs externes ou
+        levée, il faudra citer des sources primaires (Grand View Research, Mordor Intelligence, Euromonitor, etc.) et homogénéiser définitions
+        (collagène vs peptides marins).
+      </p>
+      <p class="footer-line">DALTON — confidentiel</p>
+    </section>
+
+    <!-- 4 — Réglementation & formules -->
+    <section class="slide slide--dense">
+      <span class="tag">EFSA &amp; discours</span>
+      <h2>Claims packaging / site (niveau&nbsp;1) &amp; contenu des sachets</h2>
+      <p class="micro" style="margin-bottom: 10px">
+        <strong>Peptides marins&nbsp;:</strong> pas d’allégation santé spécifique validée par l’EFSA à ce jour — les messages légaux portent sur les <strong>vitamines et minéraux</strong> présents, aux doses et conditions du Règlement (UE) n°&nbsp;432/2012.
+        <strong> Végétalisme&nbsp;:</strong> origine <strong>animale marine</strong> (non végétalien) — à indiquer clairement sur packaging et site ; vérifier aussi la filière des vitamines / arômes (ex.&nbsp;D3, gélatines si excipients).
+      </p>
+      <div class="tri-cols">
+        <div class="mini-box">
+          <h4>Équilibre</h4>
+          <p><strong>Ingrédients&nbsp;:</strong> peptides marins hydrolysés, vitamine&nbsp;C, chrome.</p>
+          <p style="margin-top: 6px"><strong>Vitamine&nbsp;C</strong> — allégations autorisées&nbsp;: contribue à la formation normale de collagène pour le fonctionnement normal de la peau ; à un métabolisme énergétique normal ; à réduire la fatigue.</p>
+          <p style="margin-top: 4px"><strong>Chrome</strong>&nbsp;: métabolisme normal des macronutriments ; maintien d’une glycémie normale (cadre légal « minceur » via glycémie, sans claim perte de poids).</p>
+        </div>
+        <div class="mini-box">
+          <h4>Énergie</h4>
+          <p><strong>Ingrédients&nbsp;:</strong> peptides marins hydrolysés, magnésium, EGCG (thé vert).</p>
+          <p style="margin-top: 6px"><strong>Magnésium</strong>&nbsp;: fonction musculaire normale ; réduction de la fatigue ; métabolisme énergétique normal ; fonctionnement normal du système nerveux.</p>
+          <p style="margin-top: 4px"><strong>EGCG</strong>&nbsp;: pas de claim minceur UE — possible de mentionner la présence comme <em>antioxydant naturel</em> sans allégation santé explicite.</p>
+        </div>
+        <div class="mini-box">
+          <h4>Complète</h4>
+          <p><strong>Ingrédients&nbsp;:</strong> double dose peptides marins, complexe vitamines &amp; minéraux (ex.&nbsp;vit.&nbsp;C, chrome, magnésium — à figer en formulation).</p>
+          <p style="margin-top: 6px"><strong>Allégations</strong>&nbsp;: union des messages autorisés pour chaque nutriment effectivement dosé (vit.&nbsp;C, chrome, magnésium comme sur les colonnes Équilibre / Énergie). Validation juridique avant impression.</p>
+        </div>
+      </div>
+      <p class="footer-line">DALTON — confidentiel — textes à valider réglementairement</p>
+    </section>
+
+    <!-- 5 — Niveaux 2–3 & format -->
+    <section class="slide slide--dense">
+      <span class="tag">Pédagogie &amp; positionnement</span>
+      <h2>Niveaux 2 &amp; 3 — Science éducative &amp; storytelling</h2>
+      <div class="slide--two-col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px">
+        <div class="box" style="padding: 12px">
+          <h3 style="font-size: 10pt">Niveau 2 — Science (hors claim produit)</h3>
+          <p class="micro">
+            Blog / réseaux / «&nbsp;Notre science&nbsp;»&nbsp;: littérature sur peptides &lt;&nbsp;3&nbsp;000&nbsp;Da, études type Zdzieblik 2015 (peptides + exercice), Clark 2008 (articulations / effort), satiété hydrolysats marins / GLP-1 endogène, peau Proksch 2014 — toujours avec références, sans promesse directe sur le produit DALTON.
+          </p>
+        </div>
+        <div class="box" style="padding: 12px">
+          <h3 style="font-size: 10pt">Niveau 3 — Storytelling implicite</h3>
+          <p class="micro">
+            Visuels actifs confiants (sans «&nbsp;perdez du poids&nbsp;») ; rituel matinal type AG1 ; endurance (trail, natation, yoga) vs flash ; contraste implicite oral / naturel vs injectables — sans les nommer.
+          </p>
+        </div>
+      </div>
+      <div class="box" style="padding: 12px; margin-top: 12px">
+        <h3 style="font-size: 10pt">Format &amp; référence qualité</h3>
+        <p class="micro">
+          Hiérarchie perçue&nbsp;: <strong>1)</strong> poudre sachet individuel (premium, dosage précis) <strong>2)</strong> gélules (souvent 4–6/j pour dose efficace) <strong>3)</strong> RTD (cher à produire/stocker) <strong>4)</strong> gummies (souvent sous-dosés). <strong>Gold standard DALTON</strong>&nbsp;: peptides collagène marin hydrolysé (ex.&nbsp;Naticol), &lt;&nbsp;3&nbsp;000&nbsp;Da, sourcing certifié, vit.&nbsp;C + chrome (+ magnésium selon formule), sachet poudre aromatisé — aligné marques premium JP / Scandinavie.
+        </p>
+      </div>
+      <p class="footer-line">DALTON — confidentiel</p>
+    </section>
+
+    <!-- 6 -->
+    <section class="slide slide--two-col slide--dense">
+      <div>
+        <span class="tag">Offre</span>
+        <h2>Gamme &amp; tarification indicative</h2>
+        <div class="pricing">
+          <div class="price-card eq">
+            <h3>Équilibre</h3>
+            <p>Métabolisme &amp; peau</p>
+            <div class="eur">38&nbsp;€</div>
+            <p>Peptides marins, vitamine&nbsp;C, chrome — abonnement mensuel.</p>
+          </div>
+          <div class="price-card en">
+            <h3>Énergie</h3>
+            <p>Sport &amp; récupération</p>
+            <div class="eur">42&nbsp;€</div>
+            <p>Peptides marins, magnésium, EGCG — usage performance.</p>
+          </div>
+          <div class="price-card co">
+            <h3>Complète</h3>
+            <p>Rituel quotidien</p>
+            <div class="eur">54&nbsp;€</div>
+            <p>Double dose peptides, complexe vitamines — LTV cible la plus élevée.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="tag">Visuels</span>
+        <h2>Identité &amp; packaging</h2>
+        <div class="thumb" style="margin-bottom: 10px">
+          <img src="assets/ChatGPT_Image_May_14__2026__03_01_00_PM-e5dc56df-7e2c-44c9-b8e7-6bb6ed8156d9.png" alt="Lifestyle" />
+        </div>
+        <div class="thumb">
+          <img src="assets/ChatGPT_Image_May_14__2026__03_02_29_PM-5e0587fb-727f-481e-b55b-abd62d0e73ec.png" alt="Packaging" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 -->
+    <section class="slide slide--two-col slide--dense">
+      <div>
+        <span class="tag">Modèle &amp; finance</span>
+        <h2>Ce qu’il faut retenir</h2>
+        <div class="box">
+          <h3>Économie DTC (hypothèses de travail)</h3>
+          <ul>
+            <li><strong>Marge brute</strong> élevée typique des compléments premium (souvent 70–85&nbsp;% selon prix, COGS, logistique).</li>
+            <li>
+              <strong>LTV&nbsp;:&nbsp;CAC</strong> cible illustrative 7× à 13× en maturation (à modéliser : taux de churn, panier, upsell Complète).
+            </li>
+            <li>Moteur : <strong>abonnement</strong> + contenu communautaire (outdoor / wellness).</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>Stack &amp; opérations</h3>
+          <ul>
+            <li>Shopify + abonnement (Recharge / équivalent) + fulfillment 3PL EU.</li>
+            <li>Priorité : conformité étiquetage FR/EU, support client, SAV retours.</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <span class="tag">Roadmap</span>
+        <h2>Prochaines étapes suggérées</h2>
+        <div class="box">
+          <ol style="margin-left: 16px; color: var(--muted); font-size: 10pt">
+            <li style="margin-bottom: 6px">Finaliser formulations &amp; panel sensoriel ; dossier claims.</li>
+            <li style="margin-bottom: 6px">Verrouiller supply (specs, audits, lots pilotes).</li>
+            <li style="margin-bottom: 6px">Pré-commande / beta DTC + création de preuve sociale.</li>
+            <li style="margin-bottom: 6px">Tableau de bord : CAC, marge, churn, NPS — revue mensuelle associés.</li>
+          </ol>
+        </div>
+        <div class="box" style="margin-top: 10px">
+          <h3>Contact</h3>
+          <p class="muted-small">Questions, données marché additionnelles, version investisseur : coordonner avec Martin Demoustier Brault.</p>
+        </div>
+        <p class="footer-line">DALTON — confidentiel — Mai 2026</p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
