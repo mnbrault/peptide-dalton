@@ -3,351 +3,558 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="DALTON — Le rituel quotidien des peptides marins. Bien-être premium, trois formules, sachets 10 g." />
-  <title>DALTON — Peptides marins</title>
+  <meta name="description" content="DALTON — Rituel contemporain. Pureté marine, pureté du geste." />
+  <title>DALTON</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-            serif: ['Cormorant Garamond', 'Georgia', 'serif'],
-          },
-        },
-      },
-    };
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
   <style>
-    html { scroll-behavior: smooth; }
+    :root {
+      --ivory: #f2eee9;
+      --sand: #e8e2d8;
+      --taupe: #c9bfb2;
+      --forest: #1a3a34;
+      --charcoal: #2a2a28;
+      --warm-black: #1c1b19;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      font-weight: 300;
+      background: var(--ivory);
+      color: var(--charcoal);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .grain::after {
+      content: "";
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .serif { font-family: "Cormorant Garamond", Georgia, serif; }
+
+    .label {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--taupe);
+    }
+
+  .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      color: var(--forest);
+      background: linear-gradient(to bottom, rgba(242, 238, 233, 0.85), transparent);
+    }
+
+    .nav a {
+      color: inherit;
+      text-decoration: none;
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+    }
+
+    .nav-logo { font-family: "Cormorant Garamond", serif; font-size: 1rem; letter-spacing: 0.2em; }
+
+    /* Editorial sections */
+    .panel {
+      min-height: 100vh;
+      min-height: 100dvh;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 3rem 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .panel { padding: 4rem 4rem; }
+    }
+
+    .panel img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .panel-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(28, 27, 25, 0.45) 0%, transparent 55%);
+    }
+
+    .panel-copy {
+      position: relative;
+      z-index: 2;
+      max-width: 36rem;
+      color: #f2eee9;
+    }
+
+    .panel-copy--dark {
+      color: var(--charcoal);
+    }
+
+    .panel h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 400;
+      font-size: clamp(3.5rem, 12vw, 7rem);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+    }
+
+    .panel h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 400;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .panel p {
+      font-size: 1rem;
+      line-height: 1.75;
+      opacity: 0.92;
+      max-width: 28rem;
+    }
+
+    .interstitial {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 1.5rem;
+      background: var(--ivory);
+    }
+
+    .interstitial .serif {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      line-height: 1.35;
+      color: var(--forest);
+      max-width: 22ch;
+      font-weight: 400;
+    }
+
+    .interstitial .sub {
+      margin-top: 2.5rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--taupe);
+    }
+
+    .split {
+      display: grid;
+      min-height: 90vh;
+    }
+
+    @media (min-width: 900px) {
+      .split { grid-template-columns: 1fr 1fr; }
+    }
+
+    .split-img {
+      min-height: 50vh;
+      position: relative;
+    }
+
+    .split-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 50vh;
+    }
+
+    .split-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 2rem;
+      background: var(--sand);
+    }
+
+    @media (min-width: 900px) {
+      .split-text { padding: 6rem 5rem; }
+    }
+
+    .split-text h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      color: var(--forest);
+      margin-bottom: 1.5rem;
+      line-height: 1.15;
+    }
+
+    .split-text p {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #5a5650;
+      max-width: 26rem;
+    }
+
+    .ritual-steps {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid rgba(26, 58, 52, 0.12);
+    }
+
+    @media (min-width: 768px) {
+      .ritual-steps { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .step {
+      padding: 3rem 2rem;
+      border-bottom: 1px solid rgba(26, 58, 52, 0.12);
+      background: var(--ivory);
+    }
+
+    @media (min-width: 768px) {
+      .step { border-bottom: none; border-right: 1px solid rgba(26, 58, 52, 0.12); }
+      .step:last-child { border-right: none; }
+    }
+
+    .step-num {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.5rem;
+      color: var(--taupe);
+      margin-bottom: 1rem;
+    }
+
+    .step h3 {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--forest);
+      margin-bottom: 0.75rem;
+    }
+
+    .step p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: #6a6560;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 768px) {
+      .gallery { grid-template-columns: 1fr 1fr; }
+    }
+
+    .gallery-item {
+      aspect-ratio: 4/5;
+      overflow: hidden;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.03);
+    }
+
+    .manifesto {
+      background: var(--forest);
+      color: var(--ivory);
+      padding: 8rem 1.5rem;
+      text-align: center;
+    }
+
+    .manifesto .serif {
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      line-height: 1.25;
+      max-width: 18ch;
+      margin: 0 auto 2rem;
+      font-weight: 400;
+    }
+
+    .manifesto .lines {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      opacity: 0.65;
+      line-height: 2.2;
+    }
+
+    .cta {
+      display: inline-block;
+      margin-top: 3rem;
+      padding: 1rem 2.5rem;
+      border: 1px solid rgba(242, 238, 233, 0.4);
+      color: var(--ivory);
+      text-decoration: none;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    .cta:hover {
+      background: var(--ivory);
+      color: var(--forest);
+    }
+
+    footer {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: var(--ivory);
+      border-top: 1px solid rgba(26, 58, 52, 0.08);
+    }
+
+    footer .logo {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.25rem;
+      letter-spacing: 0.2em;
+      color: var(--forest);
+      margin-bottom: 1.5rem;
+    }
+
+    footer p {
+      font-size: 0.7rem;
+      line-height: 1.8;
+      color: var(--taupe);
+      max-width: 32rem;
+      margin: 0 auto;
+    }
+
+    footer a {
+      color: var(--forest);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(26, 58, 52, 0.25);
+    }
+
+    .fade {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 1.2s ease, transform 1.2s ease;
+    }
+
+    .fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      font-size: 0.6rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: rgba(242, 238, 233, 0.7);
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
   </style>
 </head>
-<body class="bg-[#f5f1ea] text-[#1f1f1f] font-sans overflow-x-hidden antialiased">
+<body class="grain">
 
-  <header class="fixed top-0 left-0 right-0 z-50 bg-[#f5f1ea]/85 backdrop-blur-md border-b border-black/5">
-    <div class="max-w-7xl mx-auto px-6 md:px-16 py-4 flex items-center justify-between">
-      <a href="#top" class="font-serif text-xl tracking-[0.14em] text-[#1b2b24] font-semibold">DALTON</a>
-      <nav class="hidden md:flex items-center gap-8 text-sm text-[#555]">
-        <a href="#histoire" class="hover:text-[#1b2b24] transition-colors">Histoire</a>
-        <a href="#collection" class="hover:text-[#1b2b24] transition-colors">Collection</a>
-        <a href="#geste" class="hover:text-[#1b2b24] transition-colors">Le geste</a>
-        <a href="#transparence" class="hover:text-[#1b2b24] transition-colors">Transparence</a>
-        <a href="#contact" class="bg-[#1b2b24] text-white px-5 py-2 rounded-full text-sm hover:opacity-90 transition-opacity">Nous écrire</a>
-      </nav>
-    </div>
+  <header class="nav">
+    <a href="#top" class="nav-logo">DALTON</a>
+    <a href="#contact">Contact</a>
   </header>
 
-  <!-- HERO -->
-  <section id="top" class="relative min-h-screen flex items-center px-6 md:px-16 pt-28 pb-20">
-    <div class="absolute inset-0 bg-gradient-to-b from-[#f5f1ea] to-[#efe7db]" aria-hidden="true"></div>
+  <!-- 01 — Entrée -->
+  <section id="top" class="panel">
+    <img
+      src="assets/ChatGPT_Image_May_16__2026__07_37_50_PM-7264c0d2-ffca-4c25-87aa-9f9bcf735c0e.png"
+      alt=""
+      loading="eager"
+    />
+    <div class="panel-overlay" aria-hidden="true"></div>
+    <div class="panel-copy">
+      <p class="label" style="color: rgba(242,238,233,0.7); margin-bottom: 1.5rem;">Rituel contemporain</p>
+      <h1>DALTON</h1>
+    </div>
+    <span class="scroll-hint">Défiler</span>
+  </section>
 
-    <div class="relative z-10 max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center w-full">
-      <div>
-        <p class="uppercase tracking-[0.3em] text-xs text-[#6f756d] mb-6">
-          Peptides marins · Conçu en France
-        </p>
-
-        <h1 class="font-serif text-6xl md:text-8xl leading-[0.92] text-[#1b2b24] mb-8">
-          DALTON
-        </h1>
-
-        <p class="text-xl md:text-2xl text-[#555] leading-relaxed max-w-xl mb-10">
-          Le rituel quotidien des peptides marins.
-          <br />
-          Une approche minimaliste du bien-être, inspirée par la mer,
-          le silence et la beauté du geste.
-        </p>
-
-        <div class="flex flex-wrap gap-3 mb-10">
-          <span class="px-5 py-2 rounded-full border border-black/10 bg-white/40 backdrop-blur-sm text-sm">Peptides marins</span>
-          <span class="px-5 py-2 rounded-full border border-black/10 bg-white/40 backdrop-blur-sm text-sm">Pureté</span>
-          <span class="px-5 py-2 rounded-full border border-black/10 bg-white/40 backdrop-blur-sm text-sm">Design minimal</span>
-          <span class="px-5 py-2 rounded-full border border-black/10 bg-white/40 backdrop-blur-sm text-sm">Sachet 10&nbsp;g</span>
-        </div>
-
-        <a href="#collection" class="inline-block bg-[#1b2b24] text-white px-8 py-4 rounded-full text-sm tracking-wide hover:opacity-90 transition-opacity">
-          Découvrir le rituel
-        </a>
-      </div>
-
-      <div class="relative">
-        <div class="rounded-[32px] overflow-hidden shadow-2xl">
-          <img
-            src="assets/ChatGPT_Image_May_14__2026__02_59_53_PM-23178319-7a83-4ea8-b093-230c2932f989.png"
-            alt="Trois sachets DALTON : Équilibre, Énergie et Complète"
-            class="w-full h-[520px] md:h-[720px] object-cover"
-            width="800"
-            height="1000"
-          />
-        </div>
-
-        <div class="absolute -bottom-6 md:-bottom-8 left-0 md:-left-8 bg-[#f5f1ea]/90 backdrop-blur-lg p-6 rounded-3xl shadow-xl border border-black/5 max-w-xs">
-          <p class="text-xs uppercase tracking-[0.25em] text-[#6f756d] mb-2">The Ocean Peptide Ritual</p>
-          <p class="text-sm leading-relaxed text-[#4d4d4d]">
-            Une nouvelle génération de compléments inspirée des codes du skincare et du luxe silencieux.
-          </p>
-        </div>
-      </div>
+  <!-- 02 — Présence -->
+  <section class="panel">
+    <img
+      src="assets/ChatGPT_Image_May_16__2026__07_37_44_PM-7a0d3f7b-e707-4a11-b452-872fb05bdfa0.png"
+      alt=""
+      loading="lazy"
+    />
+    <div class="panel-overlay" aria-hidden="true"></div>
+    <div class="panel-copy fade">
+      <p class="label" style="color: rgba(242,238,233,0.65); margin-bottom: 1rem;">Méditerranée</p>
+      <h2>Moins de performance.<br />Plus de présence.</h2>
     </div>
   </section>
 
-  <!-- STORY -->
-  <section id="histoire" class="px-6 md:px-16 py-28">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 md:gap-20 items-center">
-      <div>
-        <p class="uppercase tracking-[0.3em] text-xs text-[#6f756d] mb-4">Pureté marine</p>
-
-        <h2 class="font-serif text-5xl md:text-6xl leading-tight mb-8 text-[#1b2b24]">
-          La beauté après l’effort.
-        </h2>
-
-        <p class="text-lg text-[#555] leading-relaxed mb-6">
-          DALTON transforme les peptides marins en un rituel contemporain.
-          Pas un produit de fitness. Pas un supplément agressif.
-          Un geste lent, quotidien, silencieux.
-        </p>
-
-        <p class="text-lg text-[#555] leading-relaxed">
-          Inspiré par les paysages méditerranéens, le design éditorial et les objets que l’on garde chez soi — entre endurance, skincare et nutrition fonctionnelle.
-        </p>
-      </div>
-
-      <div class="rounded-[32px] overflow-hidden shadow-xl">
-        <img
-          src="assets/ChatGPT_Image_May_14__2026__03_01_00_PM-e5dc56df-7e2c-44c9-b8e7-6bb6ed8156d9.png"
-          alt="Rituel du matin avec un sachet DALTON"
-          class="w-full h-[480px] md:h-[700px] object-cover"
-          width="800"
-          height="800"
-        />
-      </div>
-    </div>
+  <!-- 03 — Philosophie -->
+  <section class="interstitial fade">
+    <p class="serif">Pureté marine.<br />Pureté du corps.<br />Pureté du geste.</p>
+    <p class="sub">Le rituel compte plus que la promesse</p>
   </section>
 
-  <!-- GESTE -->
-  <section id="geste" class="px-6 md:px-16 py-20 border-y border-black/5 bg-white/30">
-    <div class="max-w-4xl mx-auto text-center">
-      <p class="uppercase tracking-[0.3em] text-xs text-[#6f756d] mb-4">Le geste</p>
-      <h2 class="font-serif text-4xl md:text-5xl text-[#1b2b24] mb-12">Trente secondes. Chaque matin.</h2>
-      <div class="grid md:grid-cols-3 gap-10 text-left">
-        <div>
-          <span class="font-serif text-4xl text-[#1b2b24]/30 block mb-3">01</span>
-          <h3 class="font-medium text-[#1b2b24] mb-2">Ouvrir</h3>
-          <p class="text-[#555] text-sm leading-relaxed">Un sachet dosé — 10&nbsp;g de peptides marins hydrolysés, sans le bruit d’un gros pot.</p>
-        </div>
-        <div>
-          <span class="font-serif text-4xl text-[#1b2b24]/30 block mb-3">02</span>
-          <h3 class="font-medium text-[#1b2b24] mb-2">Dissoudre</h3>
-          <p class="text-[#555] text-sm leading-relaxed">Dans un verre d’eau claire. Un geste aussi simple qu’un café du matin.</p>
-        </div>
-        <div>
-          <span class="font-serif text-4xl text-[#1b2b24]/30 block mb-3">03</span>
-          <h3 class="font-medium text-[#1b2b24] mb-2">Répéter</h3>
-          <p class="text-[#555] text-sm leading-relaxed">La régularité avant le miracle. C’est le rituel qui construit la marque.</p>
-        </div>
-      </div>
+  <!-- 04 — L'objet -->
+  <section class="split">
+    <div class="split-img">
+      <img
+        src="assets/ChatGPT_Image_May_16__2026__07_39_04_PM-6621102d-313b-42e1-ad9d-d9e7d027c9f3.png"
+        alt=""
+        loading="lazy"
+      />
     </div>
-  </section>
-
-  <!-- PRODUCTS -->
-  <section id="collection" class="px-6 md:px-16 py-28 bg-[#efe7db]">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-20">
-        <p class="uppercase tracking-[0.3em] text-xs text-[#6f756d] mb-4">Collection</p>
-        <h2 class="font-serif text-5xl md:text-6xl text-[#1b2b24] mb-6">Trois rituels.</h2>
-        <p class="max-w-2xl mx-auto text-lg text-[#555] leading-relaxed">
-          Pensés pour accompagner le corps moderne avec simplicité et précision.
-          Les angles « peau », « récupération » ou « complet » sont des intentions de marque — les allégations santé autorisées portent sur les vitamines et minéraux (voir Transparence).
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Équilibre -->
-        <article class="bg-white/60 backdrop-blur-lg rounded-[32px] p-8 md:p-10 border border-black/5 shadow-lg flex flex-col">
-          <div class="h-[280px] md:h-[320px] rounded-[28px] bg-gradient-to-b from-[#243a32] to-[#1d2f29] flex items-center justify-center mb-8">
-            <div class="w-[150px] h-[220px] rounded-[24px] bg-[#143129] shadow-2xl flex flex-col items-center justify-start pt-10 border border-white/5">
-              <span class="text-[#efe7db] tracking-[0.3em] text-[10px] mb-8">DALTON</span>
-              <span class="text-[#9fd9cc] font-serif text-2xl">Équilibre</span>
-            </div>
-          </div>
-          <h3 class="font-serif text-3xl text-[#1b2b24] mb-1">Équilibre</h3>
-          <p class="text-[#888] text-sm mb-4">Peau &amp; métabolisme</p>
-          <ul class="text-sm text-[#555] space-y-2 mb-6 flex-grow">
-            <li>Peptides marins hydrolysés</li>
-            <li>Vitamine C</li>
-            <li>Chrome</li>
-          </ul>
-          <a href="#transparence" class="text-sm uppercase tracking-[0.2em] border-b border-black/20 pb-1 hover:border-black transition-colors self-start">Allégations UE</a>
-        </article>
-
-        <!-- Énergie -->
-        <article class="bg-white/60 backdrop-blur-lg rounded-[32px] p-8 md:p-10 border border-black/5 shadow-lg flex flex-col">
-          <div class="h-[280px] md:h-[320px] rounded-[28px] bg-gradient-to-b from-[#1d2532] to-[#111826] flex items-center justify-center mb-8">
-            <div class="w-[150px] h-[220px] rounded-[24px] bg-[#121820] shadow-2xl flex flex-col items-center justify-start pt-10 border border-white/5">
-              <span class="text-[#efe7db] tracking-[0.3em] text-[10px] mb-8">DALTON</span>
-              <span class="text-[#e8a088] font-serif text-2xl">Énergie</span>
-            </div>
-          </div>
-          <h3 class="font-serif text-3xl text-[#1b2b24] mb-1">Énergie</h3>
-          <p class="text-[#888] text-sm mb-4">Récupération &amp; vitalité</p>
-          <ul class="text-sm text-[#555] space-y-2 mb-6 flex-grow">
-            <li>Peptides marins hydrolysés</li>
-            <li>Magnésium</li>
-            <li>EGCG (thé vert)</li>
-          </ul>
-          <a href="#transparence" class="text-sm uppercase tracking-[0.2em] border-b border-black/20 pb-1 hover:border-black transition-colors self-start">Allégations UE</a>
-        </article>
-
-        <!-- Complète -->
-        <article class="bg-white/60 backdrop-blur-lg rounded-[32px] p-8 md:p-10 border border-black/5 shadow-lg flex flex-col">
-          <div class="h-[280px] md:h-[320px] rounded-[28px] bg-gradient-to-b from-[#2a2d2c] to-[#171918] flex items-center justify-center mb-8">
-            <div class="w-[150px] h-[220px] rounded-[24px] bg-[#1e211f] shadow-2xl flex flex-col items-center justify-start pt-10 border border-white/5">
-              <span class="text-[#efe7db] tracking-[0.3em] text-[10px] mb-8">DALTON</span>
-              <span class="text-[#c4ddd4] font-serif text-2xl">Complète</span>
-            </div>
-          </div>
-          <h3 class="font-serif text-3xl text-[#1b2b24] mb-1">Complète</h3>
-          <p class="text-[#888] text-sm mb-4">Le rituel intégral</p>
-          <ul class="text-sm text-[#555] space-y-2 mb-6 flex-grow">
-            <li>Double dose peptides marins</li>
-            <li>Complexe vitamines &amp; minéraux</li>
-            <li>Formule tout-en-un</li>
-          </ul>
-          <a href="#transparence" class="text-sm uppercase tracking-[0.2em] border-b border-black/20 pb-1 hover:border-black transition-colors self-start">Allégations UE</a>
-        </article>
-      </div>
-
-      <p class="text-center text-xs text-[#777] mt-12 max-w-2xl mx-auto">
-        Origine marine — <strong>non végétalien</strong> (allergène poisson). Complément alimentaire : ne se substitue pas à une alimentation variée et équilibrée.
+    <div class="split-text fade">
+      <p class="label" style="margin-bottom: 1.5rem;">L'objet</p>
+      <h2>Un sachet.<br />Un geste.</h2>
+      <p>
+        Compact, précieux, matte. Un objet que l'on garde visible —
+        plus proche d'un soin ou d'une fragrance de niche
+        que d'un produit de performance.
       </p>
     </div>
   </section>
 
-  <!-- LIFESTYLE -->
-  <section class="px-6 md:px-16 py-28">
-    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-      <div class="rounded-[32px] overflow-hidden shadow-xl order-2 md:order-1">
-        <img
-          src="assets/ChatGPT_Image_May_14__2026__03_02_29_PM-5e0587fb-727f-481e-b55b-abd62d0e73ec.png"
-          alt="Coffret DALTON et sachets"
-          class="w-full h-[500px] md:h-[820px] object-cover"
-          width="800"
-          height="800"
-        />
+  <!-- 05 — Matin -->
+  <section class="panel" style="min-height: 85vh;">
+    <img
+      src="assets/ChatGPT_Image_May_16__2026__07_38_10_PM-997d4d5d-9bb8-4eb5-8c7e-90f7be9c014a.png"
+      alt=""
+      loading="lazy"
+    />
+    <div class="panel-overlay" aria-hidden="true"></div>
+    <div class="panel-copy fade">
+      <h2>La beauté après l'effort.</h2>
+      <p style="margin-top: 1rem;">Un moment lent. Silencieux. Quotidien.</p>
+    </div>
+  </section>
+
+  <!-- 06 — Le rituel -->
+  <section id="rituel">
+    <div class="interstitial" style="min-height: auto; padding: 5rem 1.5rem 3rem;">
+      <p class="label">Le rituel</p>
+      <h2 class="serif" style="font-size: clamp(2rem, 4vw, 2.75rem); color: var(--forest); margin-top: 1rem;">Trente secondes.</h2>
+    </div>
+    <div class="ritual-steps">
+      <div class="step fade">
+        <div class="step-num">I</div>
+        <h3>Ouvrir</h3>
+        <p>Le sachet. Le geste commence avant la première gorgée.</p>
       </div>
-
-      <div class="flex flex-col justify-center order-1 md:order-2">
-        <p class="uppercase tracking-[0.3em] text-xs text-[#6f756d] mb-4">Slow living</p>
-
-        <h2 class="font-serif text-5xl md:text-6xl leading-tight text-[#1b2b24] mb-8">
-          Un objet pensé pour rester.
-        </h2>
-
-        <p class="text-lg leading-relaxed text-[#555] mb-8 max-w-xl">
-          Le packaging DALTON est conçu comme un objet de décoration minimaliste.
-          Une présence discrète sur une table, une étagère, dans une salle de bain.
-        </p>
-
-        <p class="text-[#555] mb-8 italic max-w-xl">
-          « Tes peptides, tracés de l’océan jusqu’à toi. »
-        </p>
-
-        <ul class="space-y-5">
-          <li class="flex items-center gap-4 text-[#555] text-lg">
-            <span class="w-2 h-2 rounded-full bg-[#1b2b24] shrink-0"></span>
-            Packaging kraft tactile
-          </li>
-          <li class="flex items-center gap-4 text-[#555] text-lg">
-            <span class="w-2 h-2 rounded-full bg-[#1b2b24] shrink-0"></span>
-            Embossage subtil
-          </li>
-          <li class="flex items-center gap-4 text-[#555] text-lg">
-            <span class="w-2 h-2 rounded-full bg-[#1b2b24] shrink-0"></span>
-            Design inspiré du luxe silencieux
-          </li>
-          <li class="flex items-center gap-4 text-[#555] text-lg">
-            <span class="w-2 h-2 rounded-full bg-[#1b2b24] shrink-0"></span>
-            Traçabilité marine (selon sourcing final)
-          </li>
-        </ul>
+      <div class="step fade">
+        <div class="step-num">II</div>
+        <h3>Dissoudre</h3>
+        <p>Dans l'eau claire. Lumière, verre, silence.</p>
+      </div>
+      <div class="step fade">
+        <div class="step-num">III</div>
+        <h3>Répéter</h3>
+        <p>Chaque matin. La régularité est la transformation.</p>
       </div>
     </div>
   </section>
 
-  <!-- TRANSPARENCE -->
-  <section id="transparence" class="px-6 md:px-16 py-28 bg-[#ebe4d8]">
-    <div class="max-w-4xl mx-auto">
-      <p class="uppercase tracking-[0.3em] text-xs text-[#6f756d] mb-4 text-center">Transparence</p>
-      <h2 class="font-serif text-4xl md:text-5xl text-[#1b2b24] mb-8 text-center">Ce que nous pouvons dire — et comment.</h2>
-
-      <div class="space-y-6 text-sm text-[#555] leading-relaxed">
-        <div class="bg-white/70 rounded-2xl p-6 border border-black/5">
-          <h3 class="font-medium text-[#1b2b24] mb-2">Niveau 1 — Packaging &amp; site</h3>
-          <p>Allégations autorisées sur les <strong>vitamines et minéraux</strong> (vitamine&nbsp;C, chrome, magnésium selon formule), aux doses réglementaires. L’EFSA n’a pas validé de claims santé spécifiques aux peptides de collagène marins.</p>
-        </div>
-        <div class="bg-white/70 rounded-2xl p-6 border border-black/5">
-          <h3 class="font-medium text-[#1b2b24] mb-2">Niveau 2 — Éducation (blog, réseaux)</h3>
-          <p>Littérature scientifique citée avec prudence et références — sans promesse directe sur le produit DALTON.</p>
-        </div>
-        <div class="bg-white/70 rounded-2xl p-6 border border-black/5">
-          <h3 class="font-medium text-[#1b2b24] mb-2">Origine &amp; alimentation</h3>
-          <p>Peptides issus du <strong>règne animal</strong> (marine) — produit <strong>non végétalien</strong>. Allergène déclaré&nbsp;: <strong>poisson</strong>.</p>
-        </div>
-      </div>
-
-      <p class="text-center mt-8">
-        <a href="classic.html" class="text-sm uppercase tracking-[0.15em] text-[#1b2b24] border-b border-[#1b2b24]/30 hover:border-[#1b2b24] pb-0.5">
-          Version détaillée (claims par formule)
-        </a>
+  <!-- 07 — Déballage -->
+  <section class="split">
+    <div class="split-text fade" style="background: var(--ivory); order: 2;">
+      <p class="label" style="margin-bottom: 1.5rem;">Le geste</p>
+      <h2>Ouvrir.<br />Ralentir.</h2>
+      <p>
+        Kraft tactile, tissu de soie, embossage discret.
+        Chaque détail invite à prendre le temps.
       </p>
     </div>
-  </section>
-
-  <!-- QUOTE -->
-  <section class="px-6 md:px-16 py-28">
-    <div class="max-w-6xl mx-auto bg-[#1b2b24] rounded-[40px] p-12 md:p-24 text-center text-white shadow-2xl">
-      <p class="uppercase tracking-[0.35em] text-xs text-[#c8d0cb] mb-6">DALTON</p>
-
-      <h2 class="font-serif text-4xl md:text-7xl leading-tight mb-10">
-        « Pureté marine.
-        <br />
-        Pureté du geste. »
-      </h2>
-
-      <p class="max-w-3xl mx-auto text-lg md:text-xl text-[#d4dad6] leading-relaxed">
-        Une nouvelle approche du supplément : plus calme, plus sensorielle, plus esthétique.
-      </p>
+    <div class="split-img" style="order: 1;">
+      <img
+        src="assets/ChatGPT_Image_May_16__2026__07_40_56_PM-f3123923-4751-43fb-b8e8-56f962556962.png"
+        alt=""
+        loading="lazy"
+      />
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="px-6 md:px-16 pb-28">
-    <div class="max-w-xl mx-auto text-center">
-      <h2 class="font-serif text-3xl text-[#1b2b24] mb-4">Projet en lancement</h2>
-      <p class="text-[#555] mb-8">Partenariats, presse, distribution — écrivez-nous.</p>
-      <a href="mailto:contact@dalton.example" class="inline-block bg-[#1b2b24] text-white px-8 py-4 rounded-full text-sm tracking-wide hover:opacity-90 transition-opacity">
-        contact@dalton.example
-      </a>
+  <!-- 08 — Galerie -->
+  <section class="gallery">
+    <div class="gallery-item">
+      <img src="assets/ChatGPT_Image_May_16__2026__07_43_05_PM-03ad7023-e129-4d74-8ac0-75bf4cb85708.png" alt="" loading="lazy" />
+    </div>
+    <div class="gallery-item">
+      <img src="assets/ChatGPT_Image_May_16__2026__07_37_57_PM-104f607f-539a-49d0-a0d6-a44bcfdc9f6e.png" alt="" loading="lazy" />
+    </div>
+    <div class="gallery-item">
+      <img src="assets/ChatGPT_Image_May_16__2026__07_38_30_PM-1f9aa128-c56d-4211-93f2-9382ec6d79c4.png" alt="" loading="lazy" />
+    </div>
+    <div class="gallery-item">
+      <img src="assets/ChatGPT_Image_May_16__2026__07_37_50_PM-7264c0d2-ffca-4c25-87aa-9f9bcf735c0e.png" alt="" loading="lazy" />
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="px-6 md:px-16 py-14 border-t border-black/5 text-center text-sm text-[#777] bg-[#f5f1ea]">
-    <p class="mb-3 tracking-[0.25em] uppercase text-xs text-[#1b2b24] font-serif">DALTON</p>
-    <p class="mb-4">Peptides marins · Conçu en France · Luxury wellness ritual</p>
-    <p class="max-w-lg mx-auto text-xs leading-relaxed mb-4">
-      Complément alimentaire. Ne se substitue pas à une alimentation variée. Allergène&nbsp;: poisson. Non végétalien.
+  <!-- 09 — Manifesto -->
+  <section id="contact" class="manifesto fade">
+    <p class="serif">« Je veux cet objet dans ma vie. »</p>
+    <p class="lines">
+      Pureté marine · Pureté du geste<br />
+      Conçu en France
     </p>
-    <p class="text-xs">
-      <a href="classic.html" class="underline underline-offset-2 hover:text-[#1b2b24]">Site classique</a>
-      ·
-      <a href="presentation-associes.html" class="underline underline-offset-2 hover:text-[#1b2b24]">Présentation associés</a>
+    <a class="cta" href="mailto:contact@dalton.example">Être informé</a>
+  </section>
+
+  <footer>
+    <p class="logo">DALTON</p>
+    <p>
+      Rituel à base de peptides marins d'origine marine (10&nbsp;g par sachet).
+      Complément alimentaire — ne remplace pas une alimentation variée.
+      Allergène&nbsp;: poisson. Non végétalien.
     </p>
-    <p class="mt-6 text-xs">© 2026 — Martin Demoustier Brault</p>
+    <p style="margin-top: 1.5rem;">
+      <a href="classic.html">Informations produit</a>
+    </p>
+    <p style="margin-top: 2rem; opacity: 0.6;">© 2026</p>
   </footer>
 
+  <script>
+    const fades = document.querySelectorAll('.fade');
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+    );
+    fades.forEach((el) => io.observe(el));
+  </script>
 </body>
 </html>
