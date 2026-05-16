@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DALTON — Composition du rituel : Naticol®, Cartidyss®, vitamines et minéraux." />
+  <title>Le rituel — DALTON</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ivory: #f2eee9;
+      --sand: #e8e2d8;
+      --taupe: #c9bfb2;
+      --forest: #1a3a34;
+      --charcoal: #2a2a28;
+      --muted: #5a5650;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      font-weight: 300;
+      background: var(--ivory);
+      color: var(--charcoal);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+    .grain::after {
+      content: "";
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background: rgba(242, 238, 233, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(26, 58, 52, 0.06);
+    }
+    .nav a {
+      color: var(--forest);
+      text-decoration: none;
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+    }
+    .nav-logo { font-family: "Cormorant Garamond", serif; font-size: 1rem; letter-spacing: 0.2em; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a.active { opacity: 0.5; }
+    main {
+      padding-top: 5rem;
+      max-width: 52rem;
+      margin: 0 auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      padding-bottom: 3rem;
+    }
+    @media (min-width: 768px) {
+      main { padding-left: 2rem; padding-right: 2rem; }
+    }
+    .hero-img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      margin-bottom: 3rem;
+    }
+    .label {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 400;
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      color: var(--forest);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 400;
+      font-size: 1.75rem;
+      color: var(--forest);
+      margin: 3rem 0 1rem;
+      line-height: 1.2;
+    }
+    h3 {
+      font-size: 0.65rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--forest);
+      margin: 1.75rem 0 0.75rem;
+    }
+    p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem; }
+    .lead { font-size: 1.05rem; max-width: 40ch; }
+    section {
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(26, 58, 52, 0.08);
+      margin-bottom: 2rem;
+    }
+    section:last-of-type { border-bottom: none; }
+    .ritual-list { list-style: none; margin: 0; }
+    .ritual-list li {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(26, 58, 52, 0.08);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .ritual-list li:last-child { border-bottom: none; }
+    .steps-inline {
+      display: grid;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    @media (min-width: 600px) {
+      .steps-inline { grid-template-columns: repeat(3, 1fr); }
+    }
+    .step-card {
+      padding: 1.25rem 0;
+      border-top: 1px solid rgba(26, 58, 52, 0.12);
+    }
+    .step-card span {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.75rem;
+      color: var(--taupe);
+    }
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin: 1rem 0 1.5rem;
+    }
+    .comp-table th,
+    .comp-table td {
+      text-align: left;
+      padding: 0.75rem 0.5rem;
+      border-bottom: 1px solid rgba(26, 58, 52, 0.1);
+      vertical-align: top;
+    }
+    .comp-table th {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--forest);
+      font-weight: 500;
+    }
+    .comp-table td:first-child { color: var(--charcoal); min-width: 38%; }
+    .comp-table td:nth-child(2) { white-space: nowrap; color: var(--forest); font-weight: 400; }
+    .comp-table td:last-child { color: var(--muted); }
+    .block-total {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-top: 0.5rem;
+    }
+    .claims-box {
+      background: var(--sand);
+      padding: 1.5rem;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+    }
+    .claims-box ul { margin: 0.5rem 0 0 1.1rem; color: var(--muted); }
+    .claims-box li { margin-bottom: 0.5rem; }
+    .claims-box h4 {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--forest);
+      margin: 1.25rem 0 0.5rem;
+    }
+    .claims-box h4:first-child { margin-top: 0; }
+    .note {
+      font-size: 0.8rem;
+      color: var(--taupe);
+      font-style: italic;
+      margin-top: 1rem;
+    }
+    details {
+      margin-top: 1rem;
+      border: 1px solid rgba(26, 58, 52, 0.1);
+      padding: 0 1.25rem;
+      background: rgba(255, 255, 255, 0.35);
+    }
+    summary {
+      cursor: pointer;
+      padding: 1rem 0;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--forest);
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    details p, details ul { padding-bottom: 0.75rem; font-size: 0.88rem; }
+    details ul { margin-left: 1.1rem; }
+    footer {
+      text-align: center;
+      padding: 4rem 1.5rem;
+      font-size: 0.7rem;
+      color: var(--taupe);
+      max-width: 36rem;
+      margin: 0 auto;
+    }
+    footer a { color: var(--forest); }
+    footer .logo {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.2em;
+      color: var(--forest);
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body class="grain">
+
+  <header class="nav">
+    <a href="index.html" class="nav-logo">DALTON</a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="rituel.html" class="active">Le rituel</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <img
+      class="hero-img"
+      src="assets/ChatGPT_Image_May_16__2026__07_39_04_PM-6621102d-313b-42e1-ad9d-d9e7d027c9f3.png"
+      alt=""
+      loading="eager"
+    />
+
+    <p class="label">Comprendre</p>
+    <h1>Le rituel</h1>
+    <p class="lead">
+      Un sachet, chaque matin. Une seule formule&nbsp;: peptides marins <strong>Naticol®</strong> et <strong>Cartidyss®</strong>,
+      vitamines et minéraux aux apports de référence, complexe végétal sobre — environ <strong>14&nbsp;g</strong> d'actifs par portion.
+    </p>
+
+    <section id="pourquoi">
+      <h2>Pourquoi un rituel</h2>
+      <ul class="ritual-list">
+        <li>Un moment de calme, souvent le matin, avant que la journée s’accélère.</li>
+        <li>Un geste simple — ouvrir, dissoudre dans l’eau claire, boire.</li>
+        <li>Une régularité qui structure plus qu’elle ne promet.</li>
+      </ul>
+      <p class="note">Ces lignes décrivent l’expérience du rituel, pas une allégation santé sur le produit.</p>
+    </section>
+
+    <section id="pratique">
+      <h2>Comment pratiquer</h2>
+      <div class="steps-inline">
+        <div class="step-card"><span>I</span><p style="margin-top:0.5rem">Ouvrir le sachet.</p></div>
+        <div class="step-card"><span>II</span><p style="margin-top:0.5rem">Dissoudre dans un verre d’eau.</p></div>
+        <div class="step-card"><span>III</span><p style="margin-top:0.5rem">Un sachet par jour.</p></div>
+      </div>
+      <p>Complément alimentaire — ne remplace pas une alimentation variée et équilibrée.</p>
+    </section>
+
+    <section id="peptides">
+      <h2>Socle peptides marins</h2>
+      <p>Deux matières premières brevetées, mécanismes complémentaires&nbsp;:</p>
+
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Ingrédient</th>
+            <th>Dose</th>
+            <th>Rôle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Naticol®</strong><br />Collagène marin hydrolysé Type I/III, ~2&nbsp;000&nbsp;Da</td>
+            <td>10&nbsp;g</td>
+            <td>Dose de référence dans plusieurs essais cliniques (peau, articulations, récupération, composition corporelle). En dessous de 5&nbsp;g, effets plus modérés sur la peau en littérature.</td>
+          </tr>
+          <tr>
+            <td><strong>Cartidyss®</strong><br />Hydrolysat de cartilage de raie, Type II + GAG</td>
+            <td>500&nbsp;mg</td>
+            <td>Voie distincte du Type I&nbsp;: tolérance orale et soutien articulaire via mécanismes différents, avec glycosaminoglycanes naturels. Complète les 10&nbsp;g sans redondance.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="block-total">Total peptides&nbsp;: 10,5&nbsp;g</p>
+      <p class="note">Les peptides marins ne disposent pas d’allégations santé spécifiques validées par l’EFSA. Les références d’études ci-dessous relèvent de la pédagogie.</p>
+    </section>
+
+    <section id="vitamines">
+      <h2>Complexe vitaminique &amp; minéral</h2>
+      <p class="block-total" style="margin-bottom:1rem">~2,3&nbsp;g</p>
+
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Ingrédient</th>
+            <th>Dose</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Vitamine C (acide L-ascorbique)</td>
+            <td>80&nbsp;mg<br /><span style="font-size:0.8em;color:var(--taupe)">100&nbsp;% VNR</span></td>
+            <td>Cofacteur indispensable à la synthèse du collagène. Dosage aligné sur les études collagène + vitamine C et sur l’allégation EFSA.</td>
+          </tr>
+          <tr>
+            <td>Magnésium bisglycinate</td>
+            <td>300&nbsp;mg<br /><span style="font-size:0.8em;color:var(--taupe)">~45&nbsp;mg Mg élémentaire (12&nbsp;% VNR)</span></td>
+            <td>Forme hautement biodisponible, bien tolérée digestivement.</td>
+          </tr>
+          <tr>
+            <td>Chrome (picolinate)</td>
+            <td>40&nbsp;µg<br /><span style="font-size:0.8em;color:var(--taupe)">100&nbsp;% VNR</span></td>
+            <td>Forme la mieux absorbée. Dosage optimal pour les allégations métaboliques autorisées en UE.</td>
+          </tr>
+          <tr>
+            <td>Zinc bisglycinate</td>
+            <td>10&nbsp;mg<br /><span style="font-size:0.8em;color:var(--taupe)">100&nbsp;% VNR</span></td>
+            <td>Cofacteur de la synthèse protéique, stress oxydatif, peau / cheveux / ongles.</td>
+          </tr>
+          <tr>
+            <td>Acide hyaluronique<br /><span style="font-size:0.85em">faible poids moléculaire &lt;&nbsp;50&nbsp;kDa</span></td>
+            <td>100&nbsp;mg</td>
+            <td>Synergie avec le collagène pour l’hydratation cutanée. Pas d’allégation EFSA standard sur l’AH oral.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="performance">
+      <h2>Complexe performance</h2>
+      <p class="block-total" style="margin-bottom:1rem">~1,2&nbsp;g</p>
+
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Ingrédient</th>
+            <th>Dose</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Extrait de thé vert (50&nbsp;% EGCG)</td>
+            <td>500&nbsp;mg<br /><span style="font-size:0.8em;color:var(--taupe)">soit 250&nbsp;mg EGCG</span></td>
+            <td>Polyphénols du thé vert. Pas de claim «&nbsp;minceur&nbsp;» autorisé en UE — mention possible comme antioxydant naturel, sans allégation santé explicite.</td>
+          </tr>
+          <tr>
+            <td>Vitamine E (d-alpha-tocophérol)</td>
+            <td>12&nbsp;mg<br /><span style="font-size:0.8em;color:var(--taupe)">100&nbsp;% VNR</span></td>
+            <td>Forme naturelle. Synergie avec la vitamine C.</td>
+          </tr>
+          <tr>
+            <td>Poivre noir (pipérine, type Bioperine®)</td>
+            <td>5&nbsp;mg</td>
+            <td>Soutien de la biodisponibilité des autres nutriments (données cliniques sur plusieurs actifs).</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="arome">
+      <h2>Arôme &amp; texture</h2>
+      <p class="block-total" style="margin-bottom:1rem">~0,5&nbsp;g</p>
+      <p>
+        Arôme naturel citron-gingembre, acide citrique (acidifiant), gomme d’acacia (texture, fibre soluble).
+        Sans maltodextrine, sucralose ni édulcorant artificiel.
+      </p>
+    </section>
+
+    <section id="claims">
+      <h2>Allégations autorisées (Union européenne)</h2>
+      <p>Sur les <strong>vitamines et minéraux</strong> présents, aux doses et conditions du Règlement (UE) n°&nbsp;432/2012&nbsp;:</p>
+
+      <div class="claims-box">
+        <h4>Vitamine C</h4>
+        <ul>
+          <li>« Contribue à la formation normale de collagène pour le fonctionnement normal de la peau »</li>
+          <li>« Contribue à un métabolisme énergétique normal »</li>
+          <li>« Contribue à réduire la fatigue »</li>
+        </ul>
+        <h4>Magnésium</h4>
+        <ul>
+          <li>« Contribue à une fonction musculaire normale »</li>
+          <li>« Contribue à réduire la fatigue »</li>
+          <li>« Contribue à un métabolisme énergétique normal »</li>
+          <li>« Contribue au fonctionnement normal du système nerveux »</li>
+        </ul>
+        <h4>Chrome</h4>
+        <ul>
+          <li>« Contribue au métabolisme normal des macronutriments »</li>
+          <li>« Contribue au maintien d’une glycémie normale »</li>
+        </ul>
+        <h4>Zinc</h4>
+        <ul>
+          <li>« Contribue à une synthèse protéique normale »</li>
+          <li>« Contribue à protéger les cellules contre le stress oxydatif »</li>
+          <li>« Contribue au maintien d’une peau, de cheveux et d’ongles normaux »</li>
+        </ul>
+        <h4>Vitamine E</h4>
+        <ul>
+          <li>« Contribue à protéger les cellules contre le stress oxydatif »</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <details>
+        <summary>En savoir plus — science &amp; références</summary>
+        <p><strong>Naticol® 10&nbsp;g</strong> — Clark et al. (2008), athlètes, 24 semaines&nbsp;; Zdzieblik et al. (2015), composition corporelle (15&nbsp;g dans l’étude — 10&nbsp;g retenu comme dose courante en contexte sportif). Proksch et al. (2014), peau, avec peptides à dose plus faible (2,5&nbsp;g Verisol® — matière différente).</p>
+        <p><strong>Cartidyss® 500&nbsp;mg</strong> — Type II, mécanisme de tolérance orale distinct du Type I (comparable en logique à l’UC-II® à dose plus faible, avec apport en GAG).</p>
+        <p><strong>Acide hyaluronique 100&nbsp;mg</strong> — Oe et al. (2017), effets cutanés significatifs à partir de 120&nbsp;mg/j en monothérapie&nbsp;; synergie attendue avec 10&nbsp;g de collagène.</p>
+        <p><strong>EGCG 250&nbsp;mg</strong> — Hursel et al. (2009), méta-analyse sur la dépense énergétique. Pas de claim minceur UE sur le produit fini.</p>
+        <p class="note">Contenu éducatif uniquement — ne constitue pas une promesse sur DALTON. Validation réglementaire recommandée avant campagne.</p>
+      </details>
+    </section>
+
+    <section id="mentions">
+      <h2>Mentions importantes</h2>
+      <p>
+        <strong>Origine marine</strong> — produit <strong>non végétalien</strong>.
+        Allergènes&nbsp;: <strong>poisson</strong> (collagène marin, cartilage de raie).
+        Tenir hors de portée des enfants. Déconseillé aux femmes enceintes ou allaitantes sans avis médical.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p class="logo">DALTON</p>
+    <p>Naticol® et Cartidyss® — complément alimentaire</p>
+    <p style="margin-top:1rem"><a href="index.html">Retour</a></p>
+    <p style="margin-top:1.5rem;opacity:0.6">© 2026</p>
+  </footer>
+
+</body>
+</html>

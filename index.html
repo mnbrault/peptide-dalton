@@ -77,6 +77,12 @@
 
     .nav-logo { font-family: "Cormorant Garamond", serif; font-size: 1rem; letter-spacing: 0.2em; }
 
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
     /* Editorial sections */
     .panel {
       min-height: 100vh;
@@ -385,8 +391,11 @@
 <body class="grain">
 
   <header class="nav">
-    <a href="#top" class="nav-logo">DALTON</a>
-    <a href="#contact">Contact</a>
+    <a href="index.html" class="nav-logo">DALTON</a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="rituel.html">Le rituel</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
   <!-- 01 — Entrée -->
@@ -398,7 +407,6 @@
     />
     <div class="panel-overlay" aria-hidden="true"></div>
     <div class="panel-copy">
-      <p class="label" style="color: rgba(242,238,233,0.7); margin-bottom: 1.5rem;">Rituel contemporain</p>
       <h1>DALTON</h1>
     </div>
     <span class="scroll-hint">Défiler</span>
@@ -412,16 +420,11 @@
       loading="lazy"
     />
     <div class="panel-overlay" aria-hidden="true"></div>
-    <div class="panel-copy fade">
-      <p class="label" style="color: rgba(242,238,233,0.65); margin-bottom: 1rem;">Méditerranée</p>
-      <h2>Moins de performance.<br />Plus de présence.</h2>
-    </div>
   </section>
 
   <!-- 03 — Philosophie -->
   <section class="interstitial fade">
     <p class="serif">Pureté marine.<br />Pureté du corps.<br />Pureté du geste.</p>
-    <p class="sub">Le rituel compte plus que la promesse</p>
   </section>
 
   <!-- 04 — L'objet -->
@@ -434,13 +437,7 @@
       />
     </div>
     <div class="split-text fade">
-      <p class="label" style="margin-bottom: 1.5rem;">L'objet</p>
-      <h2>Un sachet.<br />Un geste.</h2>
-      <p>
-        Compact, précieux, matte. Un objet que l'on garde visible —
-        plus proche d'un soin ou d'une fragrance de niche
-        que d'un produit de performance.
-      </p>
+      <h2 class="serif" style="font-size: clamp(2rem, 4vw, 2.75rem); color: var(--forest); line-height: 1.2; margin: 0;">Un sachet.<br />Un geste.</h2>
     </div>
   </section>
 
@@ -454,7 +451,6 @@
     <div class="panel-overlay" aria-hidden="true"></div>
     <div class="panel-copy fade">
       <h2>La beauté après l'effort.</h2>
-      <p style="margin-top: 1rem;">Un moment lent. Silencieux. Quotidien.</p>
     </div>
   </section>
 
@@ -486,12 +482,7 @@
   <!-- 07 — Déballage -->
   <section class="split">
     <div class="split-text fade" style="background: var(--ivory); order: 2;">
-      <p class="label" style="margin-bottom: 1.5rem;">Le geste</p>
-      <h2>Ouvrir.<br />Ralentir.</h2>
-      <p>
-        Kraft tactile, tissu de soie, embossage discret.
-        Chaque détail invite à prendre le temps.
-      </p>
+      <h2 class="serif" style="font-size: clamp(2rem, 4vw, 2.75rem); color: var(--forest); line-height: 1.2; margin: 0;">Ouvrir.<br />Ralentir.</h2>
     </div>
     <div class="split-img" style="order: 1;">
       <img
@@ -520,23 +511,20 @@
 
   <!-- 09 — Manifesto -->
   <section id="contact" class="manifesto fade">
-    <p class="serif">« Je veux cet objet dans ma vie. »</p>
-    <p class="lines">
-      Pureté marine · Pureté du geste<br />
-      Conçu en France
-    </p>
+    <p class="serif">Chaque matin,<br />la même lumière.</p>
+    <p class="lines">Pureté marine · Pureté du geste</p>
     <a class="cta" href="mailto:contact@dalton.example">Être informé</a>
   </section>
 
   <footer>
     <p class="logo">DALTON</p>
     <p>
-      Rituel à base de peptides marins d'origine marine (10&nbsp;g par sachet).
+      Rituel Naticol® &amp; Cartidyss® — 10&nbsp;g de collagène marin par sachet.
       Complément alimentaire — ne remplace pas une alimentation variée.
       Allergène&nbsp;: poisson. Non végétalien.
     </p>
     <p style="margin-top: 1.5rem;">
-      <a href="classic.html">Informations produit</a>
+      <a href="rituel.html">Le rituel</a>
     </p>
     <p style="margin-top: 2rem; opacity: 0.6;">© 2026</p>
   </footer>
