@@ -3,599 +3,123 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="DALTON — peptides marins premium. Trois formules pour le bien-être quotidien." />
+  <meta name="description" content="DALTON — Le rituel quotidien des peptides marins. Bien-être premium, trois formules, sachets 10 g." />
   <title>DALTON — Peptides marins</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+          },
+        },
+      },
+    };
+  </script>
   <style>
-    :root {
-      --bg: #f5f1ea;
-      --bg-deep: #efe7db;
-      --ink: #1f1f1f;
-      --forest: #1d2d26;
-      --muted: #5c5c5c;
-      --equilibre: #2d4a3e;
-      --equilibre-accent: #7ec8b8;
-      --energie: #1a1e26;
-      --energie-accent: #e8a088;
-      --complete: #363933;
-      --complete-accent: #c4ddd4;
-      --wave: rgba(29, 45, 38, 0.15);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Inter, system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.65;
-      overflow-x: hidden;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 40;
-      background: rgba(245, 241, 234, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    }
-
-    .nav-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 1.5rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      color: var(--forest);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-      font-size: 0.875rem;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .nav-links a:hover {
-      color: var(--forest);
-    }
-
-    .btn-nav {
-      display: inline-block;
-      padding: 10px 20px;
-      border-radius: 999px;
-      background: var(--forest);
-      color: #fff !important;
-      font-weight: 500;
-    }
-
-    .btn-nav:hover {
-      opacity: 0.92;
-    }
-
-    .wave-divider {
-      height: 24px;
-      margin: 0 auto;
-      max-width: 200px;
-      opacity: 0.35;
-    }
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 120px 0 80px;
-      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      font-size: 11px;
-      color: #6c746c;
-      margin-bottom: 16px;
-    }
-
-    h1 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(3rem, 8vw, 5.25rem);
-      line-height: 0.98;
-      font-weight: 500;
-      margin-bottom: 20px;
-      color: var(--forest);
-    }
-
-    .hero-lead {
-      font-size: 1.25rem;
-      color: var(--muted);
-      margin-bottom: 28px;
-      max-width: 32rem;
-    }
-
-    .pillars {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 32px;
-    }
-
-    .pill {
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      border-radius: 999px;
-      padding: 8px 16px;
-      font-size: 13px;
-      background: rgba(255, 255, 255, 0.55);
-    }
-
-    .hero-image {
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: 0 32px 64px rgba(0, 0, 0, 0.12);
-    }
-
-    .hero-image img {
-      width: 100%;
-      display: block;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-    }
-
-    section {
-      padding: 96px 0;
-    }
-
-    .section-head {
-      margin-bottom: 48px;
-      max-width: 640px;
-    }
-
-    .section-title {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(2.25rem, 5vw, 3.25rem);
-      margin-bottom: 16px;
-      color: var(--forest);
-    }
-
-    .section-subtitle {
-      color: var(--muted);
-      font-size: 1.0625rem;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      align-items: center;
-    }
-
-    .prose h3 {
-      font-size: 1.5rem;
-      margin-bottom: 14px;
-      color: var(--forest);
-    }
-
-    .prose p {
-      color: #555;
-      margin-bottom: 18px;
-    }
-
-    .image-card {
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: 0 28px 56px rgba(0, 0, 0, 0.11);
-    }
-
-    .image-card img {
-      width: 100%;
-      display: block;
-      aspect-ratio: 1;
-      object-fit: cover;
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .product-card {
-      border-radius: 24px;
-      padding: 28px 24px 32px;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-      min-height: 0;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .product-card::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 18%;
-      height: 3px;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 8'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-opacity='0.35' stroke-width='1' d='M0 4 Q30 0 60 4 T120 4'/%3E%3C/svg%3E") repeat-x;
-      opacity: 0.6;
-    }
-
-    .product-card.equilibre {
-      background: linear-gradient(160deg, var(--equilibre) 0%, #1a3028 100%);
-    }
-
-    .product-card.energie {
-      background: linear-gradient(160deg, var(--energie) 0%, #0f1218 100%);
-    }
-
-    .product-card.complete {
-      background: linear-gradient(160deg, var(--complete) 0%, #242822 100%);
-    }
-
-    .product-card .tag {
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      opacity: 0.85;
-      margin-bottom: 12px;
-    }
-
-    .product-card h3 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 2.25rem;
-      font-weight: 500;
-      margin-bottom: 8px;
-    }
-
-    .product-card.equilibre h3 {
-      color: var(--equilibre-accent);
-    }
-
-    .product-card.energie h3 {
-      color: var(--energie-accent);
-    }
-
-    .product-card.complete h3 {
-      color: var(--complete-accent);
-    }
-
-    .product-card .hint {
-      font-size: 14px;
-      opacity: 0.88;
-      margin-top: auto;
-    }
-
-    .product-card ul {
-      list-style: none;
-      margin-top: 20px;
-      font-size: 14px;
-      opacity: 0.9;
-    }
-
-    .product-card li {
-      margin-bottom: 8px;
-      padding-left: 14px;
-      position: relative;
-    }
-
-    .product-card li::before {
-      content: "·";
-      position: absolute;
-      left: 0;
-      opacity: 0.7;
-    }
-
-    .product-card .ingredients-label,
-    .product-card .claims-label {
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      opacity: 0.75;
-      margin-top: 16px;
-      margin-bottom: 6px;
-    }
-
-    .product-card .claims-label {
-      margin-top: 14px;
-    }
-
-    .product-card .claims-list {
-      margin-top: 0;
-      font-size: 12px;
-      line-height: 1.45;
-      opacity: 0.92;
-    }
-
-    .product-card .claims-list li {
-      padding-left: 0;
-      margin-bottom: 6px;
-    }
-
-    .product-card .claims-list li::before {
-      display: none;
-    }
-
-    .product-card .ingredient-note {
-      font-size: 12px;
-      opacity: 0.85;
-      margin-top: 10px;
-      font-style: italic;
-    }
-
-    .science {
-      background: #ebe4d8;
-      border-top: 1px solid rgba(0, 0, 0, 0.06);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    }
-
-    .science-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 32px;
-    }
-
-    .tier-card {
-      background: rgba(255, 255, 255, 0.75);
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      border-radius: 20px;
-      padding: 22px;
-    }
-
-    .tier-card h3 {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--forest);
-      margin-bottom: 10px;
-      letter-spacing: 0.04em;
-    }
-
-    .tier-card p,
-    .tier-card li {
-      font-size: 14px;
-      color: #4a4a4a;
-    }
-
-    .tier-card ul {
-      margin: 10px 0 0 18px;
-    }
-
-    .tier-card li {
-      margin-bottom: 8px;
-    }
-
-    .tier-num {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--forest);
-      margin-bottom: 6px;
-      letter-spacing: 0.08em;
-    }
-
-    .format-block {
-      margin-top: 40px;
-      max-width: 900px;
-    }
-
-    .format-block h3 {
-      font-size: 1.125rem;
-      color: var(--forest);
-      margin-bottom: 12px;
-    }
-
-    .format-block ol {
-      margin: 0 0 16px 22px;
-      color: #555;
-      font-size: 15px;
-    }
-
-    .format-block li {
-      margin-bottom: 8px;
-    }
-
-    .format-block .gold {
-      font-size: 15px;
-      color: #444;
-      padding: 18px 22px;
-      background: rgba(255, 255, 255, 0.6);
-      border-radius: 16px;
-      border: 1px solid rgba(0, 0, 0, 0.06);
-    }
-
-    .legal-foot {
-      font-size: 12px;
-      color: #666;
-      margin-top: 24px;
-      max-width: 900px;
-      line-height: 1.5;
-    }
-
-    .band {
-      background: var(--forest);
-      color: #fff;
-      border-radius: 32px;
-      padding: 64px 48px;
-      text-align: center;
-    }
-
-    .band h2 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 500;
-      margin-bottom: 16px;
-    }
-
-    .band p {
-      max-width: 560px;
-      margin: 0 auto;
-      color: rgba(255, 255, 255, 0.82);
-      font-size: 1.0625rem;
-    }
-
-    .cta-wrap {
-      margin-top: 28px;
-    }
-
-    .btn-ghost {
-      display: inline-block;
-      padding: 14px 28px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      color: #fff;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .btn-ghost:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    footer {
-      padding: 48px 0 64px;
-      text-align: center;
-      color: #888;
-      font-size: 13px;
-    }
-
-    footer .logo {
-      display: inline-block;
-      margin-bottom: 8px;
-      color: var(--forest);
-    }
-
-    @media (max-width: 900px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hero-grid,
-      .split,
-      .products-grid,
-      .science-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 100px;
-      }
-
-      .hero-image img {
-        aspect-ratio: 16 / 10;
-        max-height: 420px;
-      }
-
-      .split .image-card {
-        order: -1;
-      }
-
-      .band {
-        padding: 48px 28px;
-      }
-    }
+    html { scroll-behavior: smooth; }
   </style>
 </head>
-<body>
-  <header>
-    <div class="nav-inner">
-      <span class="logo">DALTON</span>
-      <nav class="nav-links" aria-label="Principal">
-        <a href="#rituel">Le rituel</a>
-        <a href="#gamme">La gamme</a>
-        <a href="#science">Science &amp; conformité</a>
-        <a href="#engagement">Engagement</a>
-        <a class="btn-nav" href="#contact">Nous écrire</a>
+<body class="bg-[#f5f1ea] text-[#1f1f1f] font-sans overflow-x-hidden antialiased">
+
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#f5f1ea]/85 backdrop-blur-md border-b border-black/5">
+    <div class="max-w-7xl mx-auto px-6 md:px-16 py-4 flex items-center justify-between">
+      <a href="#top" class="font-serif text-xl tracking-[0.14em] text-[#1b2b24] font-semibold">DALTON</a>
+      <nav class="hidden md:flex items-center gap-8 text-sm text-[#555]">
+        <a href="#histoire" class="hover:text-[#1b2b24] transition-colors">Histoire</a>
+        <a href="#collection" class="hover:text-[#1b2b24] transition-colors">Collection</a>
+        <a href="#geste" class="hover:text-[#1b2b24] transition-colors">Le geste</a>
+        <a href="#transparence" class="hover:text-[#1b2b24] transition-colors">Transparence</a>
+        <a href="#contact" class="bg-[#1b2b24] text-white px-5 py-2 rounded-full text-sm hover:opacity-90 transition-opacity">Nous écrire</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero" id="top">
-    <div class="container hero-grid">
+  <!-- HERO -->
+  <section id="top" class="relative min-h-screen flex items-center px-6 md:px-16 pt-28 pb-20">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#f5f1ea] to-[#efe7db]" aria-hidden="true"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center w-full">
       <div>
-        <p class="eyebrow">Peptides marins — 10&nbsp;g</p>
-        <h1>The Ocean Peptide Ritual</h1>
-        <p class="hero-lead">
-          Trois formules premium pour intégrer les peptides marins à votre routine : métabolisme, performance ou rituel complet — avec une esthétique pensée pour le quotidien.
+        <p class="uppercase tracking-[0.3em] text-xs text-[#6f756d] mb-6">
+          Peptides marins · Conçu en France
         </p>
-        <div class="pillars">
-          <span class="pill">Biodisponibilité</span>
-          <span class="pill">Clean label</span>
-          <span class="pill">Design durable</span>
-          <span class="pill">Origine marine</span>
-          <span class="pill">Non végétalien — pêche</span>
+
+        <h1 class="font-serif text-6xl md:text-8xl leading-[0.92] text-[#1b2b24] mb-8">
+          DALTON
+        </h1>
+
+        <p class="text-xl md:text-2xl text-[#555] leading-relaxed max-w-xl mb-10">
+          Le rituel quotidien des peptides marins.
+          <br />
+          Une approche minimaliste du bien-être, inspirée par la mer,
+          le silence et la beauté du geste.
+        </p>
+
+        <div class="flex flex-wrap gap-3 mb-10">
+          <span class="px-5 py-2 rounded-full border border-black/10 bg-white/40 backdrop-blur-sm text-sm">Peptides marins</span>
+          <span class="px-5 py-2 rounded-full border border-black/10 bg-white/40 backdrop-blur-sm text-sm">Pureté</span>
+          <span class="px-5 py-2 rounded-full border border-black/10 bg-white/40 backdrop-blur-sm text-sm">Design minimal</span>
+          <span class="px-5 py-2 rounded-full border border-black/10 bg-white/40 backdrop-blur-sm text-sm">Sachet 10&nbsp;g</span>
         </div>
-        <svg class="wave-divider" viewBox="0 0 200 24" aria-hidden="true">
-          <path fill="none" stroke="currentColor" stroke-width="1.2" d="M0 12 Q50 4 100 12 T200 12" class="wave-path" style="color: var(--forest)" />
-        </svg>
+
+        <a href="#collection" class="inline-block bg-[#1b2b24] text-white px-8 py-4 rounded-full text-sm tracking-wide hover:opacity-90 transition-opacity">
+          Découvrir le rituel
+        </a>
       </div>
-      <div class="hero-image">
-        <img
-          src="assets/ChatGPT_Image_May_14__2026__02_59_53_PM-23178319-7a83-4ea8-b093-230c2932f989.png"
-          alt="Trois sachets DALTON : Équilibre, Énergie et Complète"
-          width="800"
-          height="1000"
-        />
+
+      <div class="relative">
+        <div class="rounded-[32px] overflow-hidden shadow-2xl">
+          <img
+            src="assets/ChatGPT_Image_May_14__2026__02_59_53_PM-23178319-7a83-4ea8-b093-230c2932f989.png"
+            alt="Trois sachets DALTON : Équilibre, Énergie et Complète"
+            class="w-full h-[520px] md:h-[720px] object-cover"
+            width="800"
+            height="1000"
+          />
+        </div>
+
+        <div class="absolute -bottom-6 md:-bottom-8 left-0 md:-left-8 bg-[#f5f1ea]/90 backdrop-blur-lg p-6 rounded-3xl shadow-xl border border-black/5 max-w-xs">
+          <p class="text-xs uppercase tracking-[0.25em] text-[#6f756d] mb-2">The Ocean Peptide Ritual</p>
+          <p class="text-sm leading-relaxed text-[#4d4d4d]">
+            Une nouvelle génération de compléments inspirée des codes du skincare et du luxe silencieux.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="rituel">
-    <div class="container split">
-      <div class="prose">
-        <h3>Un rituel simple, une promesse claire</h3>
-        <p>
-          Les peptides marins hydrolysés sont des fragments de protéines facilement assimilés par l’organisme. DALTON les propose en doses pratiques, pour accompagner peau, énergie et récupération — sans compromis sur le goût ni sur la qualité des ingrédients.
+  <!-- STORY -->
+  <section id="histoire" class="px-6 md:px-16 py-28">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 md:gap-20 items-center">
+      <div>
+        <p class="uppercase tracking-[0.3em] text-xs text-[#6f756d] mb-4">Pureté marine</p>
+
+        <h2 class="font-serif text-5xl md:text-6xl leading-tight mb-8 text-[#1b2b24]">
+          La beauté après l’effort.
+        </h2>
+
+        <p class="text-lg text-[#555] leading-relaxed mb-6">
+          DALTON transforme les peptides marins en un rituel contemporain.
+          Pas un produit de fitness. Pas un supplément agressif.
+          Un geste lent, quotidien, silencieux.
         </p>
-        <p>
-          Chaque sachet incarne une intention : retrouver l’équilibre, soutenir l’effort, ou adopter une formule tout-en-un. Le tout dans un univers visuel minimal, inspiré de la matière brute de l’océan et des textures naturelles.
+
+        <p class="text-lg text-[#555] leading-relaxed">
+          Inspiré par les paysages méditerranéens, le design éditorial et les objets que l’on garde chez soi — entre endurance, skincare et nutrition fonctionnelle.
         </p>
       </div>
-      <div class="image-card">
+
+      <div class="rounded-[32px] overflow-hidden shadow-xl">
         <img
           src="assets/ChatGPT_Image_May_14__2026__03_01_00_PM-e5dc56df-7e2c-44c9-b8e7-6bb6ed8156d9.png"
-          alt="Rituel du matin avec un sachet DALTON Équilibre"
+          alt="Rituel du matin avec un sachet DALTON"
+          class="w-full h-[480px] md:h-[700px] object-cover"
           width="800"
           height="800"
         />
@@ -603,189 +127,227 @@
     </div>
   </section>
 
-  <section id="gamme" style="background: linear-gradient(180deg, transparent, rgba(255,255,255,0.4));">
-    <div class="container">
-      <div class="section-head">
-        <h2 class="section-title">La gamme</h2>
-        <p class="section-subtitle">
-          Trois signatures, trois usages. Choisissez la formule qui correspond à votre objectif — ou alternez selon les saisons et votre niveau d’activité.
+  <!-- GESTE -->
+  <section id="geste" class="px-6 md:px-16 py-20 border-y border-black/5 bg-white/30">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="uppercase tracking-[0.3em] text-xs text-[#6f756d] mb-4">Le geste</p>
+      <h2 class="font-serif text-4xl md:text-5xl text-[#1b2b24] mb-12">Trente secondes. Chaque matin.</h2>
+      <div class="grid md:grid-cols-3 gap-10 text-left">
+        <div>
+          <span class="font-serif text-4xl text-[#1b2b24]/30 block mb-3">01</span>
+          <h3 class="font-medium text-[#1b2b24] mb-2">Ouvrir</h3>
+          <p class="text-[#555] text-sm leading-relaxed">Un sachet dosé — 10&nbsp;g de peptides marins hydrolysés, sans le bruit d’un gros pot.</p>
+        </div>
+        <div>
+          <span class="font-serif text-4xl text-[#1b2b24]/30 block mb-3">02</span>
+          <h3 class="font-medium text-[#1b2b24] mb-2">Dissoudre</h3>
+          <p class="text-[#555] text-sm leading-relaxed">Dans un verre d’eau claire. Un geste aussi simple qu’un café du matin.</p>
+        </div>
+        <div>
+          <span class="font-serif text-4xl text-[#1b2b24]/30 block mb-3">03</span>
+          <h3 class="font-medium text-[#1b2b24] mb-2">Répéter</h3>
+          <p class="text-[#555] text-sm leading-relaxed">La régularité avant le miracle. C’est le rituel qui construit la marque.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="collection" class="px-6 md:px-16 py-28 bg-[#efe7db]">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-20">
+        <p class="uppercase tracking-[0.3em] text-xs text-[#6f756d] mb-4">Collection</p>
+        <h2 class="font-serif text-5xl md:text-6xl text-[#1b2b24] mb-6">Trois rituels.</h2>
+        <p class="max-w-2xl mx-auto text-lg text-[#555] leading-relaxed">
+          Pensés pour accompagner le corps moderne avec simplicité et précision.
+          Les angles « peau », « récupération » ou « complet » sont des intentions de marque — les allégations santé autorisées portent sur les vitamines et minéraux (voir Transparence).
         </p>
       </div>
-      <div class="products-grid">
-        <article class="product-card equilibre">
-          <span class="tag">DALTON</span>
-          <h3>Équilibre</h3>
-          <p class="hint">Métabolisme &amp; peau</p>
-          <p class="ingredients-label">Dans le sachet</p>
-          <ul>
-            <li>Peptides marins hydrolysés (dosage cible 10&nbsp;g)</li>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Équilibre -->
+        <article class="bg-white/60 backdrop-blur-lg rounded-[32px] p-8 md:p-10 border border-black/5 shadow-lg flex flex-col">
+          <div class="h-[280px] md:h-[320px] rounded-[28px] bg-gradient-to-b from-[#243a32] to-[#1d2f29] flex items-center justify-center mb-8">
+            <div class="w-[150px] h-[220px] rounded-[24px] bg-[#143129] shadow-2xl flex flex-col items-center justify-start pt-10 border border-white/5">
+              <span class="text-[#efe7db] tracking-[0.3em] text-[10px] mb-8">DALTON</span>
+              <span class="text-[#9fd9cc] font-serif text-2xl">Équilibre</span>
+            </div>
+          </div>
+          <h3 class="font-serif text-3xl text-[#1b2b24] mb-1">Équilibre</h3>
+          <p class="text-[#888] text-sm mb-4">Peau &amp; métabolisme</p>
+          <ul class="text-sm text-[#555] space-y-2 mb-6 flex-grow">
+            <li>Peptides marins hydrolysés</li>
             <li>Vitamine C</li>
             <li>Chrome</li>
           </ul>
-          <p class="ingredient-note">L’EFSA n’a pas validé de claims santé spécifiques aux peptides de collagène : les allégations autorisées en UE portent sur les vitamines et minéraux présents, aux doses réglementaires.</p>
-          <p class="claims-label">Allégations autorisées (UE) — vitamine&nbsp;C</p>
-          <ul class="claims-list">
-            <li>« Contribue à la formation normale de collagène pour le fonctionnement normal de la peau »</li>
-            <li>« Contribue à un métabolisme énergétique normal »</li>
-            <li>« Contribue à réduire la fatigue »</li>
-          </ul>
-          <p class="claims-label">Chrome</p>
-          <ul class="claims-list">
-            <li>« Contribue au métabolisme normal des macronutriments »</li>
-            <li>« Contribue au maintien d’une glycémie normale »</li>
-          </ul>
+          <a href="#transparence" class="text-sm uppercase tracking-[0.2em] border-b border-black/20 pb-1 hover:border-black transition-colors self-start">Allégations UE</a>
         </article>
-        <article class="product-card energie">
-          <span class="tag">DALTON</span>
-          <h3>Énergie</h3>
-          <p class="hint">Sport &amp; récupération</p>
-          <p class="ingredients-label">Dans le sachet</p>
-          <ul>
-            <li>Peptides marins hydrolysés (dosage cible 10&nbsp;g)</li>
+
+        <!-- Énergie -->
+        <article class="bg-white/60 backdrop-blur-lg rounded-[32px] p-8 md:p-10 border border-black/5 shadow-lg flex flex-col">
+          <div class="h-[280px] md:h-[320px] rounded-[28px] bg-gradient-to-b from-[#1d2532] to-[#111826] flex items-center justify-center mb-8">
+            <div class="w-[150px] h-[220px] rounded-[24px] bg-[#121820] shadow-2xl flex flex-col items-center justify-start pt-10 border border-white/5">
+              <span class="text-[#efe7db] tracking-[0.3em] text-[10px] mb-8">DALTON</span>
+              <span class="text-[#e8a088] font-serif text-2xl">Énergie</span>
+            </div>
+          </div>
+          <h3 class="font-serif text-3xl text-[#1b2b24] mb-1">Énergie</h3>
+          <p class="text-[#888] text-sm mb-4">Récupération &amp; vitalité</p>
+          <ul class="text-sm text-[#555] space-y-2 mb-6 flex-grow">
+            <li>Peptides marins hydrolysés</li>
             <li>Magnésium</li>
-            <li>EGCG (polyphénols du thé vert)</li>
+            <li>EGCG (thé vert)</li>
           </ul>
-          <p class="ingredient-note">Pas de claim santé direct sur les peptides. EGCG&nbsp;: pas de claim « minceur » autorisé en UE — mention possible comme antioxydant naturel, sans allégation santé explicite.</p>
-          <p class="claims-label">Allégations autorisées (UE) — magnésium</p>
-          <ul class="claims-list">
-            <li>« Contribue à une fonction musculaire normale »</li>
-            <li>« Contribue à réduire la fatigue »</li>
-            <li>« Contribue à un métabolisme énergétique normal »</li>
-            <li>« Contribue au fonctionnement normal du système nerveux »</li>
-          </ul>
+          <a href="#transparence" class="text-sm uppercase tracking-[0.2em] border-b border-black/20 pb-1 hover:border-black transition-colors self-start">Allégations UE</a>
         </article>
-        <article class="product-card complete">
-          <span class="tag">DALTON</span>
-          <h3>Complète</h3>
-          <p class="hint">Rituel quotidien tout-en-un</p>
-          <p class="ingredients-label">Dans le sachet</p>
-          <ul>
-            <li>Double dose peptides marins hydrolysés</li>
-            <li>Complexe vitamines &amp; minéraux incl. vitamine&nbsp;C, chrome, magnésium</li>
-            <li>Formule premium intégrée</li>
+
+        <!-- Complète -->
+        <article class="bg-white/60 backdrop-blur-lg rounded-[32px] p-8 md:p-10 border border-black/5 shadow-lg flex flex-col">
+          <div class="h-[280px] md:h-[320px] rounded-[28px] bg-gradient-to-b from-[#2a2d2c] to-[#171918] flex items-center justify-center mb-8">
+            <div class="w-[150px] h-[220px] rounded-[24px] bg-[#1e211f] shadow-2xl flex flex-col items-center justify-start pt-10 border border-white/5">
+              <span class="text-[#efe7db] tracking-[0.3em] text-[10px] mb-8">DALTON</span>
+              <span class="text-[#c4ddd4] font-serif text-2xl">Complète</span>
+            </div>
+          </div>
+          <h3 class="font-serif text-3xl text-[#1b2b24] mb-1">Complète</h3>
+          <p class="text-[#888] text-sm mb-4">Le rituel intégral</p>
+          <ul class="text-sm text-[#555] space-y-2 mb-6 flex-grow">
+            <li>Double dose peptides marins</li>
+            <li>Complexe vitamines &amp; minéraux</li>
+            <li>Formule tout-en-un</li>
           </ul>
-          <p class="ingredient-note">Les allégations UE ci-dessous s’appliquent aux nutriments effectivement présents aux apports requis — à verrouiller en formulation finale et étiquetage.</p>
-          <p class="claims-label">Vitamine&nbsp;C (si présente aux doses requises)</p>
-          <ul class="claims-list">
-            <li>« Contribue à la formation normale de collagène pour le fonctionnement normal de la peau »</li>
-            <li>« Contribue à un métabolisme énergétique normal »</li>
-            <li>« Contribue à réduire la fatigue »</li>
-          </ul>
-          <p class="claims-label">Chrome (si présent aux doses requises)</p>
-          <ul class="claims-list">
-            <li>« Contribue au métabolisme normal des macronutriments »</li>
-            <li>« Contribue au maintien d’une glycémie normale »</li>
-          </ul>
-          <p class="claims-label">Magnésium (si présent aux doses requises)</p>
-          <ul class="claims-list">
-            <li>« Contribue à une fonction musculaire normale »</li>
-            <li>« Contribue à réduire la fatigue »</li>
-            <li>« Contribue à un métabolisme énergétique normal »</li>
-            <li>« Contribue au fonctionnement normal du système nerveux »</li>
-          </ul>
+          <a href="#transparence" class="text-sm uppercase tracking-[0.2em] border-b border-black/20 pb-1 hover:border-black transition-colors self-start">Allégations UE</a>
         </article>
       </div>
-      <p class="legal-foot">
-        Chaque formulation doit respecter les conditions d’emploi des allégations nutritionnelles et de santé autorisées (Règlement (UE) n°&nbsp;432/2012, doses journalières, mentions obligatoires). Faire valider packaging et site par un conseil réglementaire avant mise sur le marché.
+
+      <p class="text-center text-xs text-[#777] mt-12 max-w-2xl mx-auto">
+        Origine marine — <strong>non végétalien</strong> (allergène poisson). Complément alimentaire : ne se substitue pas à une alimentation variée et équilibrée.
       </p>
     </div>
   </section>
 
-  <section class="science" id="science">
-    <div class="container">
-      <div class="section-head">
-        <h2 class="section-title">Science, pédagogie &amp; storytelling</h2>
-        <p class="section-subtitle">
-          Trois niveaux de discours : ce que la loi autorise sur le produit, ce que la littérature permet d’expliquer hors claim, et ce que la marque suggère sans jamais l’affirmer.
-        </p>
-      </div>
-      <div class="science-grid">
-        <div class="tier-card">
-          <span class="tier-num">Niveau 1 — Affirmé</span>
-          <h3>Packaging &amp; site marchand</h3>
-          <p>Uniquement les allégations EFSA retenues pour les vitamines et minéraux présents (voir encadrés par sachet). Les peptides marins ne portent pas encore de claims santé validés par l’EFSA.</p>
-        </div>
-        <div class="tier-card">
-          <span class="tier-num">Niveau 2 — Pédagogie prudente</span>
-          <h3>Blog, réseaux, page « Notre science »</h3>
-          <ul>
-            <li>Absorption des petits peptides marins vs collagène non hydrolysé (mécanisme général, sans comparer à un concurrent nommé).</li>
-            <li>Études sur peptides + exercice (ex.&nbsp;Zdzieblik et al., 2015) — composition corporelle, citées en contexte, pas comme promesse produit.</li>
-            <li>Données récupération / articulations (ex.&nbsp;Clark et al., 2008) ; satiété des hydrolysats marins ; peau (ex.&nbsp;Proksch et al., 2014) — toujours avec références et nuance.</li>
-          </ul>
-        </div>
-        <div class="tier-card">
-          <span class="tier-num">Niveau 3 — Suggéré</span>
-          <h3>Univers visuel &amp; narratif</h3>
-          <ul>
-            <li>Silhouette &amp; confiance : actifs à l’aise, jamais « perdez du poids » en claim.</li>
-            <li>Rituel du matin : habitude premium (eau, sachet), comme le journaling.</li>
-            <li>Endurance, trail, natation, yoga — performance durable, pas miracle flash.</li>
-            <li>Contraste implicite avec les injectables : oral, naturel, régularité — sans les nommer.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="format-block">
-        <h3>Format &amp; perception qualité</h3>
-        <p style="color: #555; margin-bottom: 12px; max-width: 800px">
-          Par ordre de qualité perçue et de biodisponibilité pratique : <strong>poudre en sachet individuel</strong> (dissolution rapide, dosage précis, image premium), puis gélules (souvent 4–6 par jour pour une dose efficace), liquides RTD (premium mais logistique lourde), enfin gummies (souvent sous-dosés en peptides, plus marketing qu’efficacité).
-        </p>
-        <ol>
-          <li>Sachet poudre — référence premium pour le segment.</li>
-          <li>Gélules — pratiques, dosage unitaire limité.</li>
-          <li>Prêt à boire — coût &amp; conservation.</li>
-          <li>Gummies — tendance, peptides souvent insuffisants.</li>
-        </ol>
-        <p class="gold">
-          <strong>« Gold standard » cible DALTON</strong> — peptides de collagène marin hydrolysé (ex.&nbsp;ingrédients brevetés type Naticol), masse moléculaire &lt;&nbsp;3&nbsp;000&nbsp;Da, sourcing certifié, formulé avec vitamine&nbsp;C + chrome (+ magnésium selon formule), poudre aromatisée en <strong>sachet individuel</strong> — aligné avec les références premium japonaises et scandinaves du segment haut de gamme.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="engagement">
-    <div class="container split">
-      <div class="image-card">
+  <!-- LIFESTYLE -->
+  <section class="px-6 md:px-16 py-28">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <div class="rounded-[32px] overflow-hidden shadow-xl order-2 md:order-1">
         <img
           src="assets/ChatGPT_Image_May_14__2026__03_02_29_PM-5e0587fb-727f-481e-b55b-abd62d0e73ec.png"
-          alt="Coffret DALTON ouvert avec les trois gammes de sachets"
+          alt="Coffret DALTON et sachets"
+          class="w-full h-[500px] md:h-[820px] object-cover"
           width="800"
           height="800"
         />
       </div>
-      <div class="prose">
-        <h3>De l’océan à votre routine</h3>
-        <p>
-          Le packaging s’inspire des matières brutes — carton naturel, sachets sobres, typographie élégante. L’objectif : une expérience premium tout en restant ancrée dans une démarche responsable et lisible.
+
+      <div class="flex flex-col justify-center order-1 md:order-2">
+        <p class="uppercase tracking-[0.3em] text-xs text-[#6f756d] mb-4">Slow living</p>
+
+        <h2 class="font-serif text-5xl md:text-6xl leading-tight text-[#1b2b24] mb-8">
+          Un objet pensé pour rester.
+        </h2>
+
+        <p class="text-lg leading-relaxed text-[#555] mb-8 max-w-xl">
+          Le packaging DALTON est conçu comme un objet de décoration minimaliste.
+          Une présence discrète sur une table, une étagère, dans une salle de bain.
         </p>
-        <p>
-          <em>« Tes peptides, tracés de l’océan jusqu’à toi. »</em> Une traçabilité et une histoire de marque pensées pour celles et ceux qui exigent la transparence autant que le résultat.
+
+        <p class="text-[#555] mb-8 italic max-w-xl">
+          « Tes peptides, tracés de l’océan jusqu’à toi. »
         </p>
+
+        <ul class="space-y-5">
+          <li class="flex items-center gap-4 text-[#555] text-lg">
+            <span class="w-2 h-2 rounded-full bg-[#1b2b24] shrink-0"></span>
+            Packaging kraft tactile
+          </li>
+          <li class="flex items-center gap-4 text-[#555] text-lg">
+            <span class="w-2 h-2 rounded-full bg-[#1b2b24] shrink-0"></span>
+            Embossage subtil
+          </li>
+          <li class="flex items-center gap-4 text-[#555] text-lg">
+            <span class="w-2 h-2 rounded-full bg-[#1b2b24] shrink-0"></span>
+            Design inspiré du luxe silencieux
+          </li>
+          <li class="flex items-center gap-4 text-[#555] text-lg">
+            <span class="w-2 h-2 rounded-full bg-[#1b2b24] shrink-0"></span>
+            Traçabilité marine (selon sourcing final)
+          </li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <section id="contact">
-    <div class="container">
-      <div class="band">
-        <h2>DALTON</h2>
-        <p>
-          Projet en cours de lancement. Pour partenariats, presse ou distribution, laissez un message — nous revenons vers vous rapidement.
-        </p>
-        <div class="cta-wrap">
-          <a class="btn-ghost" href="mailto:contact@dalton.example">contact@dalton.example</a>
+  <!-- TRANSPARENCE -->
+  <section id="transparence" class="px-6 md:px-16 py-28 bg-[#ebe4d8]">
+    <div class="max-w-4xl mx-auto">
+      <p class="uppercase tracking-[0.3em] text-xs text-[#6f756d] mb-4 text-center">Transparence</p>
+      <h2 class="font-serif text-4xl md:text-5xl text-[#1b2b24] mb-8 text-center">Ce que nous pouvons dire — et comment.</h2>
+
+      <div class="space-y-6 text-sm text-[#555] leading-relaxed">
+        <div class="bg-white/70 rounded-2xl p-6 border border-black/5">
+          <h3 class="font-medium text-[#1b2b24] mb-2">Niveau 1 — Packaging &amp; site</h3>
+          <p>Allégations autorisées sur les <strong>vitamines et minéraux</strong> (vitamine&nbsp;C, chrome, magnésium selon formule), aux doses réglementaires. L’EFSA n’a pas validé de claims santé spécifiques aux peptides de collagène marins.</p>
+        </div>
+        <div class="bg-white/70 rounded-2xl p-6 border border-black/5">
+          <h3 class="font-medium text-[#1b2b24] mb-2">Niveau 2 — Éducation (blog, réseaux)</h3>
+          <p>Littérature scientifique citée avec prudence et références — sans promesse directe sur le produit DALTON.</p>
+        </div>
+        <div class="bg-white/70 rounded-2xl p-6 border border-black/5">
+          <h3 class="font-medium text-[#1b2b24] mb-2">Origine &amp; alimentation</h3>
+          <p>Peptides issus du <strong>règne animal</strong> (marine) — produit <strong>non végétalien</strong>. Allergène déclaré&nbsp;: <strong>poisson</strong>.</p>
         </div>
       </div>
+
+      <p class="text-center mt-8">
+        <a href="classic.html" class="text-sm uppercase tracking-[0.15em] text-[#1b2b24] border-b border-[#1b2b24]/30 hover:border-[#1b2b24] pb-0.5">
+          Version détaillée (claims par formule)
+        </a>
+      </p>
     </div>
   </section>
 
-  <footer>
-    <div class="logo">DALTON</div>
-    <p>Peptides marins — usage responsable. Complément alimentaire, ne se substitue pas à une alimentation variée.</p>
-    <p style="margin-top: 10px; max-width: 52ch; margin-left: auto; margin-right: auto">
-      <strong>Origine</strong> : les peptides sont issus du <strong>règne animal</strong> (origine marine, co-produits de pêche durable selon sourcing) — le produit <strong>n’est pas végétalien</strong>. Les autres ingrédients (vitamines, minéraux, arômes) devront être spécifiés sur l’étiquette finale (origine végétale ou non selon fournisseurs).
+  <!-- QUOTE -->
+  <section class="px-6 md:px-16 py-28">
+    <div class="max-w-6xl mx-auto bg-[#1b2b24] rounded-[40px] p-12 md:p-24 text-center text-white shadow-2xl">
+      <p class="uppercase tracking-[0.35em] text-xs text-[#c8d0cb] mb-6">DALTON</p>
+
+      <h2 class="font-serif text-4xl md:text-7xl leading-tight mb-10">
+        « Pureté marine.
+        <br />
+        Pureté du geste. »
+      </h2>
+
+      <p class="max-w-3xl mx-auto text-lg md:text-xl text-[#d4dad6] leading-relaxed">
+        Une nouvelle approche du supplément : plus calme, plus sensorielle, plus esthétique.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="px-6 md:px-16 pb-28">
+    <div class="max-w-xl mx-auto text-center">
+      <h2 class="font-serif text-3xl text-[#1b2b24] mb-4">Projet en lancement</h2>
+      <p class="text-[#555] mb-8">Partenariats, presse, distribution — écrivez-nous.</p>
+      <a href="mailto:contact@dalton.example" class="inline-block bg-[#1b2b24] text-white px-8 py-4 rounded-full text-sm tracking-wide hover:opacity-90 transition-opacity">
+        contact@dalton.example
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="px-6 md:px-16 py-14 border-t border-black/5 text-center text-sm text-[#777] bg-[#f5f1ea]">
+    <p class="mb-3 tracking-[0.25em] uppercase text-xs text-[#1b2b24] font-serif">DALTON</p>
+    <p class="mb-4">Peptides marins · Conçu en France · Luxury wellness ritual</p>
+    <p class="max-w-lg mx-auto text-xs leading-relaxed mb-4">
+      Complément alimentaire. Ne se substitue pas à une alimentation variée. Allergène&nbsp;: poisson. Non végétalien.
     </p>
-    <p style="margin-top: 12px;">© 2026 — Martin Demoustier Brault</p>
+    <p class="text-xs">
+      <a href="classic.html" class="underline underline-offset-2 hover:text-[#1b2b24]">Site classique</a>
+      ·
+      <a href="presentation-associes.html" class="underline underline-offset-2 hover:text-[#1b2b24]">Présentation associés</a>
+    </p>
+    <p class="mt-6 text-xs">© 2026 — Martin Demoustier Brault</p>
   </footer>
+
 </body>
 </html>
