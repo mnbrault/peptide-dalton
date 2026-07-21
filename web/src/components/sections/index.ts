@@ -1,0 +1,9 @@
+export { Hero } from "./Hero";
+export { WhyMarinePeptides } from "./WhyMarinePeptides";
+export { TheBodyRemembers } from "./TheBodyRemembers";
+export { Science } from "./Science";
+export { Ingredients } from "./Ingredients";
+export { TheRitual } from "./TheRitual";
+export { Packaging } from "./Packaging";
+export { BeginRitual } from "./BeginRitual";
+export { JournalPreview } from "./JournalPreview";

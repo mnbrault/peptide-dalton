@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+:root {
+  --ivory: #f7f5f1;
+  --stone: #ece7de;
+  --sand: #ddd2c3;
+  --forest: #173a33;
+  --charcoal: #262626;
+  --black: #111111;
+}
+
+@theme inline {
+  --color-ivory: var(--ivory);
+  --color-stone: var(--stone);
+  --color-sand: var(--sand);
+  --color-forest: var(--forest);
+  --color-charcoal: var(--charcoal);
+  --color-black: var(--black);
+  --font-serif: var(--font-cormorant);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-plex);
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--ivory);
+  color: var(--charcoal);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--forest);
+  color: var(--ivory);
+}
+
+.font-serif {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+.font-mono {
+  font-family: var(--font-plex), ui-monospace, monospace;
+}
+
+.micro {
+  font-family: var(--font-plex), ui-monospace, monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.grain::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
